@@ -1231,10 +1231,10 @@ TRAPEZIOS <-function()
   while(isExtant(wintrapezio)) Sys.sleep(1)
 
   ##= Mudar o icone da janela
-  dir <- dirname(sys.frame(1)$ofile)
-  icon_dir <-paste0(dir, "/icon.png")
-  img <- gdkPixbufNewFromFile(icon_dir)
-  getToolkitWidget(winbissection)$setIcon(img$retval)
+ # dir <- dirname(sys.frame(1)$ofile)
+  #icon_dir <-paste0(dir, "/icon.png")
+ # img <- gdkPixbufNewFromFile(icon_dir)
+ # getToolkitWidget(winbissection)$setIcon(img$retval)
 }
 ###########################################################################################
 #' Metodo de Simpson:
@@ -1469,10 +1469,10 @@ SIMPSON <-function()
   while(isExtant(winsimpson)) Sys.sleep(1)
 
   ##= Mudar o icone da janela
-  dir <- dirname(sys.frame(1)$ofile)
-  icon_dir <-paste0(dir, "/icon.png")
-  img <- gdkPixbufNewFromFile(icon_dir)
-  getToolkitWidget(winbissection)$setIcon(img$retval)
+  #dir <- dirname(sys.frame(1)$ofile)
+  #icon_dir <-paste0(dir, "/icon.png")
+ # img <- gdkPixbufNewFromFile(icon_dir)
+  #getToolkitWidget(winbissection)$setIcon(img$retval)
 }
 ###########################################################################################
 #' Interpolacao por Lagrange - Pontos:
@@ -1910,10 +1910,10 @@ INTERPOLACAOFUNCAO <-function()
   while(isExtant(winpolinomial)) Sys.sleep(1)
 
   ##= Mudar o icone da janela
-  dir <- dirname(sys.frame(1)$ofile)
-  icon_dir <-paste0(dir, "/icon.png")
-  img <- gdkPixbufNewFromFile(icon_dir)
-  getToolkitWidget(winpolinomial)$setIcon(img$retval)
+  #dir <- dirname(sys.frame(1)$ofile)
+  #icon_dir <-paste0(dir, "/icon.png")
+ # img <- gdkPixbufNewFromFile(icon_dir)
+  #getToolkitWidget(winpolinomial)$setIcon(img$retval)
 }
 ###########################################################################################
 #' Aproximacao por Taylor:
@@ -2117,17 +2117,17 @@ TAYLOR <-function()
   while(isExtant(wintaylor)) Sys.sleep(1)
 
   ##= Mudar o icone da janela
-  dir <- dirname(sys.frame(1)$ofile)
-  icon_dir <-paste0(dir, "/icon.png")
-  img <- gdkPixbufNewFromFile(icon_dir)
-  getToolkitWidget(winbissection)$setIcon(img$retval)
+  #dir <- dirname(sys.frame(1)$ofile)
+ # icon_dir <-paste0(dir, "/icon.png")
+ # img <- gdkPixbufNewFromFile(icon_dir)
+  #getToolkitWidget(winbissection)$setIcon(img$retval)
 }
 
 JANELAPRINCIPAL<-function(...)
 {
 
     linkfun <- function(h,...){
-        browseURL("http://liscustodio.github.io/CN_visual.html")
+        browseURL("http://liscustodio.github.io/CnVisual")
     }
 
     choose <- c("----------------","Zero de funcoes:", "   Bissecao","   Falsa Posicao", "   Newton-Raphson", "   Secantes",
@@ -2154,8 +2154,8 @@ JANELAPRINCIPAL<-function(...)
     Texto <- glabel("Por favor, leia o manual antes de utilizar o software \ne verifique se nao ha uma versao mais recente, \n ambos podem ser encontrados no site, \n basta clicar no botao a baixo", container = bottomframe)
     gbutton("Ir para o site", cont= maingroup, handler = linkfun)
 
-    img <- gdkPixbufNewFromFile("icon.png")
-    getToolkitWidget(MainWindow)$setIcon(img$retval)
+    #img <- gdkPixbufNewFromFile("icon.png")
+    #getToolkitWidget(MainWindow)$setIcon(img$retval)
 
     exit_hand<-function(h,...){dispose(MainWindow)}
     gbutton("SAIR", cont= maingroup, handler = exit_hand)
