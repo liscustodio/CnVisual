@@ -1,6 +1,6 @@
 ############################################################################################
 #' Metodo da Bissecao:
-#' Ilustra as iteracoes feitas pelo metodo da bissecao, que obtem aproximacoes para as raizes de uma dada funcao real
+#' Ilustra as iteracoes feitas pelo metodo da bissecao, que obtem aproximacoes para as raizes de uma dada funcao real.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)
 #' @param Intervalo_x Intervalo contento a raiz da funcao, separado por espaco, exemplo: -5 6
@@ -261,7 +261,7 @@ while(isExtant(winbissection)) Sys.sleep(1)
 
 ###########################################################################################
 #' Método da Falsa Posicao:
-#' Ilustra as iteracoes feitas pelo metodo da falsa posicao, que obtem aproximacoes para as raizes de uma dada funcao real
+#' Ilustra as iteracoes feitas pelo metodo da falsa posicao, que obtem aproximacoes para as raizes de uma dada funcao real.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)
 #' @param Intervalo_x Intervalo contento a raiz da funcao, separado por espaco, exemplo: -5 6
@@ -517,7 +517,7 @@ FALSAPOSICAO <-function()
 }
 ###########################################################################################
 #' Método Newton-Rapson:
-#' Ilustra as iteracoes feitas pelo metodo  Newton_Raphson, que obtem aproximacoes para as raizes de uma dada funcao real
+#' Ilustra as iteracoes feitas pelo metodo  Newton_Raphson, que obtem aproximacoes para as raizes de uma dada funcao real.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)
 #' @param Pto_inicial "chute inicial"
@@ -753,7 +753,7 @@ NEWTONRAPSON <-function()
 }
 ###########################################################################################
 #' Aproximacao pelo metodo das secantes:
-#' Ilustra as iteracoes feitas pelo metodo  Método da secante, que obtem aproximacoes para as raizes de uma dada funcao real
+#' Ilustra as iteracoes feitas pelo metodo  Método da Secante, que obtem aproximacoes para as raizes de uma dada funcao real.
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)
 #' @param Intervalo_x Intervalo contento a raiz da funcao, separado por espaco, exemplo: -5 6
 #' @param N_Casas Numero de casas decimais correspondente a precisao desejada
@@ -1013,15 +1013,15 @@ SECANTE <-function()
 
 ############################################################################################
 #' Metodo dos Trapezios:
-#' Ilustra as iteracoes feitas pelo metodo dos trapezios para calculo de aproximacao de integral
+#' Ilustra as iteracoes feitas pelo metodo dos trapezios, metodo que aproxima o valor da integral de uma função em um dado intervalo.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja calcular a integral
 #' @param Intervalo Intervalo onde sera feita a aproximacao da integral, separado por espaco, exemplo: -3 9.87
 #' @param Numero_de_Intervalos Define em quantas vezes o intervalo dado sera dividido
 #' @param Tempo Regula quanto tempo durara cada iteracao
-#' @param OG_Indices Alterna se indices dos pontos aparecerao
-#' @param OG_Pintar_Area Alterna se a area abaixo das linhas formadas pelo trapezio devem ser pintadas ou nao
-#' @param OG_Linhas_Verticais Alterna se as linhas ligando os pontos das divisoes com o eixo x devem ser plotados ou nao
+#' @param OG_Indices Determina se os indices dos pontos serao exibidos
+#' @param OG_Pintar_Area Determina se a area abaixo das linhas formadas pelo método devem ser pintadas ou nao
+#' @param OG_Linhas_Verticais Determina se serao plotadas as linhas verticais associados a cada ponto
 TRAPEZIOS <-function()
 {
   #== Mensagem inicial na area de resultados
@@ -1238,15 +1238,15 @@ TRAPEZIOS <-function()
 }
 ###########################################################################################
 #' Metodo de Simpson:
-#' Ilustra as iteracoes feitas pelo metodo dos trapezios para calculo de aproximacao de integral
+#' Ilustra as iteracoes feitas pelo metodo dos Simpson, que aproxima o valor da integral de uma funcao em um dado intervalo.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja calcular a integral
 #' @param Intervalo Intervalo onde sera feita a aproximacao da integral, separado por espaco, exemplo: -3 9
 #' @param Numero_de_Intervalos Define em quantas vezes o intervalo dado sera dividido
 #' @param Tempo Regula quanto tempo durara cada iteracao
-#' @param OG_Indices Alterna se indices dos pontos aparecerao
-#' @param OG_Pintar_Area Alterna se a area abaixo das curvas formadas pelo metodo devem ser pintadas ou nao
-#' @param OG_Linhas_Verticais Alterna se as linhas ligando os pontos das divisoes com o eixo x devem ser plotados ou nao
+#' @param OG_Indices Determina se os indices dos pontos serao exibidos
+#' @param OG_Pintar_Area Determina se a area abaixo das curvas formadas pelo metodo devem ser pintadas ou nao
+#' @param OG_Linhas_Verticais Determina se serao plotadas as linhas verticais associados a cada ponto
 SIMPSON <-function()
 {
   #== Mensagem inicial na area de resultados
@@ -1476,14 +1476,14 @@ SIMPSON <-function()
 }
 ###########################################################################################
 #' Interpolacao por Lagrange - Pontos:
-#' Interpola uma funcao que passa pelos pontos dado pelo usuario, e a partir dela aproxima um ponto.
+#' Interpola polinomialmente um conjunto de pontos, e a partir da interpolacao obtida aproxima o valor da funcao em um dado ponto.
 #'
-#' @param Valores_em_x As coordenadas em x dos pontos utilizados na interpolacao, separados por espaco e na ordem crescente, exemplo.: -9 -3 0.58 8 22
-#' @param Valores_em_y As coordenadas em y dos pontos utilizados na interpolacao, separados por espaco, a quantidade de termos deve ser igual a de x
+#' @param Valores_em_x As coordenadas no eixo x dos pontos utilizados na interpolacao, separados por espaco e na ordem crescente, exemplo.: -9 -3 0.58 8 22
+#' @param Valores_em_y As coordenadas no eixo y dos pontos utilizados na interpolacao, separados por espaco, a quantidade de termos deve ser igual a do eixo x
 #' @param Pto_aproximado valor de x para o qual a funcao sera aproximada pela polinomio interpolador
 #' @param Intervalo_x Define qual o intervalo do plot no eixo x, separados por espaco e na ordem crescente
 #' @param OG_Indice Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não
-#' @param OG_Animacao Determina se a funcao interpolada visualizada com animacao ou sera plotada de uma so vez
+#' @param OG_Animacao Determina se a funcao interpolada sera visualizada com animacao ou sera plotada de uma so vez
 #' @param OG_Linhas_Verticais  Determina se as linhas verticais ligando o ponto da funcao no eixo x serao exibidas ou nao
 INTERPOLACAOPONTOS <-function()
 {
@@ -1681,16 +1681,16 @@ INTERPOLACAOPONTOS <-function()
 }
 ###########################################################################################
 #' Interpolacao por Lagrange - Funcao:
-#' Interpola uma funcao que passa pelos pontos dado pelo usuario, e a partir dela aproxima um ponto.
+#' Interpola polinomialmente pontos de uma dada funcao, e a partir da interpolacao obtida aproxima o valor da funcao em um dado ponto.
 #'
 #' @param Funcao A funcao que sera usada para dar os pontos em y e entao ser feita a interpolacao
 #' @param Valores_em_x As coordenadas em x dos pontos utilizados na interpolacao, separados por espaco e em ordem crescente, exemplo: -5.58 -1 2.2 8
 #' @param Pto_aproximado Escolha de qual ponto quer ser aproximado a partir da aproximacao pela interpolacao
 #' @param Intervalo_x Define qual o intervalo do plot no eixo x, separados por espaco e na ordem crescente
 #' @param Intervalo_y Define qual o intervalo do plot no eixo y, separados por espaco e na ordem crescente
-#' @param OG_Indice Alterna se indices dos pontos aparecerao ou nao
-#' @param OG_Animacao Alterna se a funcao interpolada tera animacao ou sera plotada direto
-#' @param OG_Linhas_Verticais Alterna se as linhas ligando os pontos das divisoes com o eixo x devem ser plotados ou nao
+#' @param OG_Indice Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não
+#' @param OG_Animacao Determina se a funcao interpolada sera visualizada com animacao ou sera plotada de uma so vez
+#' @param OG_Linhas_Verticais  Determina se as linhas verticais ligando o ponto da funcao no eixo x serao exibidas ou nao
 INTERPOLACAOFUNCAO <-function()
 {
   #== Mensagem inicial na area de resultados
@@ -1917,6 +1917,8 @@ INTERPOLACAOFUNCAO <-function()
 }
 ###########################################################################################
 #' Aproximacao por Taylor:
+#' Obtem uma aproximação local para dada funcao, através da construcao dos polinomios de Taylor
+#'
 #' Atraves da derivada de um ponto dado de uma funcao sao interpolados polinomios de grau 1 a 5 para aproximar um outro ponto
 #'
 #' @param Funcao A que ser utilizada como base
