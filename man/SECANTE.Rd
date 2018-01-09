@@ -2,29 +2,29 @@
 % Please edit documentation in R/CN_visual.R
 \name{SECANTE}
 \alias{SECANTE}
-\title{Aproximacao pelo metodo das secantes:
-Ilustra as iteracoes feitas pelo metodo  Método da secante, que obtem aproximacoes para as raizes de uma dada funcao real}
+\title{Aproximacao pelo método das secantes:
+Ilustra as iteracoes feitas pelo método  Método da Secante, que obtem aproximações para as raizes de uma dada funcao real.}
 \usage{
 SECANTE()
 }
 \arguments{
 \item{Funcao}{A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)}
 
-\item{Intervalo_x}{Intervalo contento a raiz da funcao, separado por espaco, exemplo: -5 6}
+\item{Intervalo_x}{Intervalo contento a raiz da funcao, separado por espaço, exemplo: -5 6}
 
-\item{N_Casas}{Numero de casas decimais correspondente a precisao desejada}
+\item{N_Casas}{Número de casas decimais correspondente a precisao desejada}
 
-\item{N_Iteracoes}{Define o numero maximo de iteracao, 0 (zero) para limitar apenas pelas casas decimais}
+\item{N_Iteracoes}{Define o Número maximo de iteracao, 0 (zero) para limitar apenas pelas casas decimais}
 
 \item{Tempo}{Tempo de exibicao de cada iteracao}
 
-\item{OG_Indices}{Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não}
+\item{OG_Indices}{Determina se os indices das aproximações obtidas em cada iteracao serao exibidos ou não}
 
-\item{OG_Linha_secante}{Determina se as retas secantes ao grafico, utilizadas pelo metodo serao exibidas ou não}
+\item{OG_Linha_secante}{Determina se as retas secantes ao grafico, utilizadas pelo método serao exibidas ou não}
 
 \item{OG_Linha_vertical}{Determina se as linhas verticais ligando o ponto da funcao no eixo x serao exibidas ou nao}
 }
 \description{
-Aproximacao pelo metodo das secantes:
-Ilustra as iteracoes feitas pelo metodo  Método da secante, que obtem aproximacoes para as raizes de uma dada funcao real
+Aproximacao pelo método das secantes:
+Ilustra as iteracoes feitas pelo método  Método da Secante, que obtem aproximações para as raizes de uma dada funcao real.
 }

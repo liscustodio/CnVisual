@@ -2,27 +2,27 @@
 % Please edit documentation in R/CN_visual.R
 \name{SIMPSON}
 \alias{SIMPSON}
-\title{Metodo de Simpson:
-Ilustra as iteracoes feitas pelo metodo dos trapezios para calculo de aproximacao de integral}
+\title{Método de Simpson:
+Ilustra as iteracoes feitas pelo método dos Simpson, que aproxima o valor da integral de uma funcao em um dado intervalo.}
 \usage{
 SIMPSON()
 }
 \arguments{
 \item{Funcao}{A equacao que descreve a funcao para a qual se deseja calcular a integral}
 
-\item{Intervalo}{Intervalo onde sera feita a aproximacao da integral, separado por espaco, exemplo: -3 9}
+\item{Intervalo}{Intervalo onde sera feita a aproximacao da integral, separado por espaço, exemplo: -3 9}
 
 \item{Numero_de_Intervalos}{Define em quantas vezes o intervalo dado sera dividido}
 
 \item{Tempo}{Regula quanto tempo durara cada iteracao}
 
-\item{OG_Indices}{Alterna se indices dos pontos aparecerao}
+\item{OG_Indices}{Determina se os índices dos pontos serao exibidos}
 
-\item{OG_Pintar_Area}{Alterna se a area abaixo das curvas formadas pelo metodo devem ser pintadas ou nao}
+\item{OG_Pintar_Area}{Determina se a area abaixo das curvas formadas pelo método devem ser pintadas ou nao}
 
-\item{OG_Linhas_Verticais}{Alterna se as linhas ligando os pontos das divisoes com o eixo x devem ser plotados ou nao}
+\item{OG_Linhas_Verticais}{Determina se serao plotadas as linhas verticais associados a cada ponto}
 }
 \description{
-Metodo de Simpson:
-Ilustra as iteracoes feitas pelo metodo dos trapezios para calculo de aproximacao de integral
+Método de Simpson:
+Ilustra as iteracoes feitas pelo método dos Simpson, que aproxima o valor da integral de uma funcao em um dado intervalo.
 }

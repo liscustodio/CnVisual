@@ -3,24 +3,24 @@
 \name{NEWTONRAPSON}
 \alias{NEWTONRAPSON}
 \title{Método Newton-Rapson:
-Ilustra as iteracoes feitas pelo metodo  Newton_Raphson, que obtem aproximacoes para as raizes de uma dada funcao real}
+Ilustra as iterações feitas pelo metodo  Newton_Raphson, que obtem aproximações para as raizes de uma dada funcao real.}
 \usage{
 NEWTONRAPSON()
 }
 \arguments{
 \item{Funcao}{A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)}
 
-\item{Pto_inicial}{"chute inicial"}
+\item{Pto_inicial}{"Aproximação inicial"}
 
-\item{Intervalo_x}{Define o intervalo no eixo x de visualizacao da funcao dada, separados por espaco e na ordem crescente}
+\item{Intervalo_x}{Define o intervalo no eixo x de visualizacao da funcao dada, separados por espaço e na ordem crescente}
 
-\item{N_Casas}{Numero de casas decimais correspondente a precisao desejada}
+\item{N_Casas}{Número de casas decimais correspondente a precisao desejada}
 
-\item{N_Iteracoes}{Numero maximo de iteracoes}
+\item{N_Iteracoes}{Número maximo de iterações}
 
 \item{Tempo}{Tempo de exibicao de cada iteracao}
 
-\item{OG_Indices}{Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não}
+\item{OG_Indices}{Determina se os indices das aproximações obtidas em cada iteracao serao exibidos ou não}
 
 \item{OG_Linha_Tangante}{Determina se as retas tangentes ao grafico, utilizadas pelo metodo serao exibidas ou não}
 
@@ -28,5 +28,5 @@ NEWTONRAPSON()
 }
 \description{
 Método Newton-Rapson:
-Ilustra as iteracoes feitas pelo metodo  Newton_Raphson, que obtem aproximacoes para as raizes de uma dada funcao real
+Ilustra as iterações feitas pelo metodo  Newton_Raphson, que obtem aproximações para as raizes de uma dada funcao real.
 }

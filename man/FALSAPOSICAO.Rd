@@ -3,26 +3,26 @@
 \name{FALSAPOSICAO}
 \alias{FALSAPOSICAO}
 \title{Método da Falsa Posicao:
-Ilustra as iteracoes feitas pelo metodo da falsa posicao, que obtem aproximacoes para as raizes de uma dada funcao real}
+Ilustra as iterações feitas pelo metodo da falsa posicao, que obtem aproximações para as raizes de uma dada funcao real.}
 \usage{
 FALSAPOSICAO()
 }
 \arguments{
 \item{Funcao}{A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)}
 
-\item{Intervalo_x}{Intervalo contento a raiz da funcao, separado por espaco, exemplo: -5 6}
+\item{Intervalo_x}{Intervalo contento a raiz da funcao, separado por espaço, exemplo: -5 6}
 
-\item{N_Casas}{Numero de casas decimais correspondente a precisao desejada}
+\item{N_Casas}{Número de casas decimais correspondente a precisao desejada}
 
-\item{N_Iteracoes}{Numero maximo de iteracoes}
+\item{N_Iteracoes}{Número maximo de iterações}
 
 \item{Tempo}{Tempo de exibicao de cada iteracao}
 
-\item{OG_Indices}{Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não}
+\item{OG_Indices}{Determina se os índices das aproximações obtidas em cada iteracao serao exibidos ou não}
 
 \item{OG_Linha_Secante}{Deternina se as retas secantes ao grafico serao exibidas ou não}
 }
 \description{
 Método da Falsa Posicao:
-Ilustra as iteracoes feitas pelo metodo da falsa posicao, que obtem aproximacoes para as raizes de uma dada funcao real
+Ilustra as iterações feitas pelo metodo da falsa posicao, que obtem aproximações para as raizes de uma dada funcao real.
 }

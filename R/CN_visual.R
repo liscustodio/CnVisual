@@ -1,18 +1,18 @@
 ############################################################################################
 #' Metodo da Bissecao:
-#' Ilustra as iteracoes feitas pelo metodo da bissecao, que obtem aproximacoes para as raizes de uma dada funcao real.
+#' Ilustra as iterações feitas pelo metodo da bissecao, que obtem aproximações para as raizes de uma dada funcao real.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)
-#' @param Intervalo_x Intervalo contento a raiz da funcao, separado por espaco, exemplo: -5 6
-#' @param N_casas_decimais Numero de casas decimais correspondente a precisao desejada
-#' @param Iteracoes Numero maximo de iteracoes
+#' @param Intervalo_x Intervalo contento a raiz da funcao, separado por espaço, exemplo: -5 6
+#' @param N_casas_decimais Número de casas decimais correspondente a precisao desejada
+#' @param Iteracoes Número maximo de iterações
 #' @param Tempo tempo de exibição de cada iteracao
-#' @param OG_Indices Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou nao
+#' @param OG_Indices Determina se os índices das aproximações obtidas em cada iteracao serao exibidos ou nao
 #' @param OG_Linha_Axiliar Determina se a linha com o intervalo da iteracao sera exibida ou nao
 BISSECAO <- function()
 {
 #== Mensagem inicial na area de resultados
-valuetextm <- "Aproximacoes obtidas"
+valuetextm <- "Aproximações obtidas"
 
 
 ##================================================================
@@ -27,7 +27,7 @@ bissection <- function(h,...)
   s<-as.numeric(svalue(env_stop))
   stp <- 10^(-s)
   stpint <- as.numeric(svalue(env_inter))
-  if(is.na(stpint)) stpint <- 999 #numero ilimitado de iteracoes
+  if(is.na(stpint)) stpint <- 999 #Número ilimitado de iteracoes
   speed<-as.numeric(svalue(env_speed))
 
 
@@ -129,16 +129,16 @@ bissection <- function(h,...)
     inter_y <- c(y_min,y_min) #vetor para da altura para o plot das linhas horizontais
 
     visible(gg) <- TRUE #Agora a area grafica gg que ira receber o plot
-    plot(func,xlim=c(a_k[1]- 1,b_k[1]+ 1), col = "red", xlab="Eixo x", ylab="Eixo y", container= gg) #Plot da f(x)
+    plot(func,xlim=c(a_k[1]- 1,b_k[1]+ 1), col = "red", xlab="Eixo x", ylab="Eixo y") #Plot da f(x)
     abline(h=0, lty=2)
     abline(v=0, lty=2)
 
     z_k <- rep(0, cont) # Vetor de zeros do tamanho do vetor m_k
 
     #= Plot dos pontos a e b sobre o eixo x
-    points(a_k[1], 0, col="blue", pch = 1, cer = 5)
+    points(a_k[1], 0, col="blue", pch = 1)
     text(a_k[1],0,"a",cex=0.65, pos=3, col="blue")
-    points(b_k[1], 0, col="blue", pch = 1, cer = 5)
+    points(b_k[1], 0, col="blue", pch = 1)
     text(b_k[1],0,"b",cex=0.65, pos=3, col="blue")
 
     #== Animacao
@@ -154,7 +154,7 @@ bissection <- function(h,...)
       }
 
       Sys.sleep(speed/2) #tempo
-      points(m_k[1:i], z_k[1:i], col="blue", pch = 1, cer = 5) # Plot dos pontos m_k sobre o eixo x
+      points(m_k[1:i], z_k[1:i], col="blue", pch = 1) # Plot dos pontos m_k sobre o eixo x
 
       #
       if(svalue(pont)){ #Indices dos pontos
@@ -168,19 +168,21 @@ bissection <- function(h,...)
     dx <- (b0-a0)/10
     visible(gg2) <- TRUE #agora a area grafica gg2 que ira receber o plot
     par(mar=rep(0, 4)) #margem
-    plot(func, xlim=c(m_k[cont] - dx,m_k[cont] + dx), col = "red", xlab="Eixo x", ylab="Eixo y", container= gg) #plot da funcao
+    plot(func, xlim=c(m_k[cont] - dx,m_k[cont] + dx), col = "red", xlab="Eixo x", ylab="Eixo y") #plot da funcao
     abline(h=0, lty=2)
     abline(v=0, lty=2)
 
-    points(m_k[1:cont], z_k[1:cont], col="blue", pch = 1, cer = 5) # Plot dos pontos m_k sobre o eixo x
+    points(m_k[1:cont], z_k[1:cont], col="blue", pch = 1) # Plot dos pontos m_k sobre o eixo x
     index <-c(0:cont)
     if(svalue(pont)){
       text(m_k[1:cont],z_k[1:cont],index,cex=0.65, pos=3, col="blue")
     }
 
     #==Resultados a serem mostrados ao usuario
-    valuetextm <- paste("Aproximacoes: ",paste0(m_k, collapse =" | "))
+    valuetextm <- paste("Aproximações: ",paste0(m_k, collapse =" | "))
     insert(mk_output,valuetextm)
+
+
   }
 
   #== Erro para caso tenha um numero par de raizes
@@ -188,7 +190,7 @@ bissection <- function(h,...)
     error.NoNegative <- gwindow("Erro",width = 10)
     error.NNgt <- ggroup(horizontal = FALSE, container = error.NoNegative)
     error.NNgb <- ggroup(horizontal = FALSE, container = error.NoNegative)
-    error.NNlabel <- glabel("No intervalo dado a funcao nao tem raiz, tem um numero par de raizes, ou a raiz e um ponto critico da funcao. Escolha outro interlavo", container=error.NNgt)
+    error.NNlabel <- glabel("No intervalo dado a funcao nao tem raiz, tem um número par de raizes, ou a raiz e um ponto critico da funcao. Escolha outro interlavo", container=error.NNgt)
     exit.NN <-function(h,...){dispose(error.NoNegative)}
     gbutton("Ok", cont= error.NNgb, handler = exit.NN)
 
@@ -199,7 +201,7 @@ bissection <- function(h,...)
 
 #===========================================================================
 #INTERFACE
-winbissection <- gwindow("Metodo da Bissecao") #Criacao da janela
+winbissection <- gwindow("Método da Bisseção") #Criacao da janela
 
 ##= Criacao dos grupos
 Groupbuttons <- ggroup(container = winbissection, horizontal=FALSE)
@@ -208,40 +210,42 @@ Groupgraphic <- ggroup(container = winbissection, horizontal=FALSE)
 ##= Cricao dos frames
 buttonsFrame <- gframe("Dados de Entrada", container = Groupbuttons, horizontal = FALSE)
 gbutton("Desenhe", cont= Groupbuttons, handler = bissection)
-valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE)
-mk_output <- gtext("", container=valueframe, expand = TRUE)
+valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE,expand = TRUE)
+mk_output <- gtext("", container = valueframe ,expand = TRUE)
 
 ##= Criacao das opcoes graficas
-checkboxframe <- gframe("Opcoes Graficas", container =Groupgraphic, horizontal = TRUE)
+checkboxframe <- gframe("Opções gráficas", container =Groupgraphic, horizontal = TRUE)
 glabel("Selecione antes do Plot", container= checkboxframe)
-pont <- gcheckbox("Indices de x", checked = FALSE, cont =checkboxframe)
+pont <- gcheckbox("Índices das aproximações", checked = FALSE, cont =checkboxframe)
 linhz <- gcheckbox("Linha auxiliar", checked = TRUE, cont= checkboxframe, expand = TRUE)
 
 ##= Criacao das area do zoom
-zoomGraphFrame <- gframe("Zoom do grafico principal", container = Groupbuttons, horizontal = FALSE)
+zoomGraphFrame <- gframe("Zoom do gráfico principal", container = Groupbuttons, horizontal = FALSE)
 gg2<-ggraphics(container = zoomGraphFrame,  width = 220, height = 220)
 
 ##= Criacao da area do plot principal
-mainGrapghFrame <- gframe("Grafico Principal", container = Groupgraphic)
-gg<-ggraphics(container = mainGrapghFrame, width = 500, height = 500)
+mainGrapghFrame <- gframe("Gráfico Principal", container = Groupgraphic)
+gg<-ggraphics(container = mainGrapghFrame, width = 650, height = 650)
 
 ##= area de entrada dos dados
-functionframe <- gframe("Funcao", container = buttonsFrame, horizontal = TRUE)
-env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)")
+functionframe <- gframe("Função", container = buttonsFrame, horizontal = TRUE)
+env_function<-gedit("", cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)", expand = TRUE)
 
 intervalframe <- gframe("Intervalo", container = buttonsFrame, horizontal = TRUE)
-glabel("Intervalo em x:", container = intervalframe)
-env_pts<-gedit("", width = 20,cont = intervalframe, initial.msg = "Separados por espaco")
+glabel("Intervalo no eixo x:", container = intervalframe)
+env_pts<-gedit("", width = 20,cont = intervalframe, initial.msg = "Separados por espaço", expand = TRUE)
 
-stopframe <- gframe("Precisao desejada", container= buttonsFrame, horizontal=TRUE)
-glabel("No de casas decimais:", container = stopframe)
-env_stop<-gedit("",width = 5, cont = stopframe, initial.msg = "ex.: 1 para 0,1")
-glabel("No de iteracoes:", container = stopframe)
-env_inter<-gedit("",width = 5, cont = stopframe, initial.msg = "ex.: 0 p/ ilimitado")
+stopframe <- gframe("Precisão desejada", container= buttonsFrame, horizontal=FALSE)
+tf1<-ggroup(container = stopframe, horizontal=TRUE )
+glabel("Número de casas decimais:", container = tf1)
+env_stop<-gedit("", cont = tf1, initial.msg = "ex.: 2 para duas casas decimais", expand = TRUE)
+tf2<-ggroup(container = stopframe, horizontal=TRUE )
+glabel("Número máximo de iterações:", container = tf2)
+env_inter<-gedit("", cont = tf2, initial.msg = "Preenchimento não obrigatório", expand = TRUE)
 
-sppedframe <- gframe("Velocidade da animacao", container= buttonsFrame, horizontal=TRUE, expand = TRUE)
+sppedframe <- gframe("Velocidade da animação", container= buttonsFrame, horizontal=TRUE, expand = TRUE)
 glabel("Tempo em segundos:", container = sppedframe)
-env_speed<-gedit("",width = 35, cont = sppedframe, initial.msg = "Intervalo de tempo entre as iteracoes")
+env_speed<-gedit("",width = 35, cont = sppedframe, initial.msg = "Intervalo de tempo entre as iterações", expand = TRUE)
 
 ##= criacao do botao de saida
 exit_func<-function(h,...){dispose(winbissection)}
@@ -261,19 +265,19 @@ while(isExtant(winbissection)) Sys.sleep(1)
 
 ###########################################################################################
 #' Método da Falsa Posicao:
-#' Ilustra as iteracoes feitas pelo metodo da falsa posicao, que obtem aproximacoes para as raizes de uma dada funcao real.
+#' Ilustra as iterações feitas pelo metodo da falsa posicao, que obtem aproximações para as raizes de uma dada funcao real.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)
-#' @param Intervalo_x Intervalo contento a raiz da funcao, separado por espaco, exemplo: -5 6
-#' @param N_Casas Numero de casas decimais correspondente a precisao desejada
-#' @param N_Iteracoes Numero maximo de iteracoes
+#' @param Intervalo_x Intervalo contento a raiz da funcao, separado por espaço, exemplo: -5 6
+#' @param N_Casas Número de casas decimais correspondente a precisao desejada
+#' @param N_Iteracoes Número maximo de iterações
 #' @param Tempo Tempo de exibicao de cada iteracao
-#' @param OG_Indices Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não
+#' @param OG_Indices Determina se os índices das aproximações obtidas em cada iteracao serao exibidos ou não
 #' @param OG_Linha_Secante Deternina se as retas secantes ao grafico serao exibidas ou não
 FALSAPOSICAO <-function()
 {
   #== Mensagem inicial na area de resultados
-  valuetextm <- "Aproximacoes obtidas"
+  valuetextm <- "Aproximações obtidas"
 
   ##================================================================
   ##========== FUNCOES
@@ -384,16 +388,16 @@ FALSAPOSICAO <-function()
       if(abs(y_max) <= 0.1*(absalt)) y_max<- 0.1*(absalt)
 
       visible(gg) <- TRUE #Agora a area grafica gg que ira receber o plot
-      plot(func, xlim=c(a_k[1] - 1, b_k[1] + 1),ylim=c(y_min,y_max), col = "red", xlab="Eixo x", ylab="Eixo y", container= gg) #plot da f(x)
+      plot(func, xlim=c(a_k[1] - 1, b_k[1] + 1),ylim=c(y_min,y_max), col = "red", xlab="Eixo x", ylab="Eixo y") #plot da f(x)
       abline(h=0, lty=2)
       abline(v=0, lty=2)
 
       z_k <- rep(0, cont) # Vetor de zeros do tamanho do vetor m_k
 
       #= Plot dos pontos a e b sobre o eixo x
-      points(a_k[1], 0, col="blue", pch = 1, cer = 5)
+      points(a_k[1], 0, col="blue", pch = 1)
       text(a_k[1],0,"a",cex=0.65, pos=3, col="blue")
-      points(b_k[1], 0, col="blue", pch = 1, cer = 5)
+      points(b_k[1], 0, col="blue", pch = 1)
       text(b_k[1],0,"b",cex=0.65, pos=3, col="blue")
 
 
@@ -403,7 +407,7 @@ FALSAPOSICAO <-function()
       for (i in 1:cont) #Para cada iteracao
       {
         Sys.sleep(speed/3)
-        points(m_k[1:i], z_k[1:i], col="blue", pch = 1, cer = 5)# Plot dos pontos m_k sobre o eixo x
+        points(m_k[1:i], z_k[1:i], col="blue", pch = 1)# Plot dos pontos m_k sobre o eixo x
         if(svalue(pont)){#Indices dos pontos
           index <-c(0:(i-1))
           text(m_k[1:i],z_k[1:i],index,cex=0.65, pos=3, col="blue")
@@ -422,11 +426,11 @@ FALSAPOSICAO <-function()
       dx <- (b0-a0)/10
       visible(gg2) <- TRUE #agora a area grafica gg2 que ira receber o plot
       par(mar=rep(0, 4)) #margem
-      plot(func, xlim=c(m_k[cont] - dx,m_k[cont] + dx), col = "red", xlab="Eixo x", ylab="Eixo y", container= gg) #plot da funcao
+      plot(func, xlim=c(m_k[cont] - dx,m_k[cont] + dx), col = "red", xlab="Eixo x", ylab="Eixo y") #plot da funcao
       abline(h=0, lty=2)
       abline(v=0, lty=2)
 
-      points(m_k[1:cont], z_k[1:cont], col="blue", pch = 1, cer = 5) # Plot dos pontos m_k sobre o eixo x
+      points(m_k[1:cont], z_k[1:cont], col="blue", pch = 1) # Plot dos pontos m_k sobre o eixo x
       index <-c(0:cont)
       if(svalue(pont)){
         text(m_k[1:cont],z_k[1:cont],index,cex=0.65, pos=3, col="blue")
@@ -437,7 +441,7 @@ FALSAPOSICAO <-function()
       }
 
       #Resultados a serem mostrados ao usuario
-      valuetextm <- paste("Aproximacoes: ",paste0(m_k, collapse =" | "))
+      valuetextm <- paste("Aproximações: ",paste0(m_k, collapse =" | "))
       insert(mk_output,valuetextm)
     }
 
@@ -446,7 +450,7 @@ FALSAPOSICAO <-function()
       error.NoNegative <- gwindow("Erro",width = 10)
       error.NNgt <- ggroup(horizontal = FALSE, container = error.NoNegative)
       error.NNgb <- ggroup(horizontal = FALSE, container = error.NoNegative)
-      error.NNlabel <- glabel("No intervalo dado a funcao nao tem raiz ou tem um numero par de raizes. Escolha outro interlavo", container=error.NNgt)
+      error.NNlabel <- glabel("No intervalo dado a funcao nao tem raiz ou tem um número par de raizes. Escolha outro interlavo", container=error.NNgt)
       exit.NN <-function(h,...){dispose(error.NoNegative)}
       gbutton("Ok", cont= error.NNgb, handler = exit.NN)
 
@@ -456,7 +460,7 @@ FALSAPOSICAO <-function()
 
   #===========================================================================
   #INTERFACE
-  winfalse <- gwindow("Metodo da Falsa Posicao") #Janela Principal
+  winfalse <- gwindow("Método da Falsa Posição") #Janela Principal
 
   ##= Criacao dos grupos
   Groupbuttons <- ggroup(container = winfalse, horizontal=FALSE)
@@ -465,40 +469,43 @@ FALSAPOSICAO <-function()
   ##= Criacao dos frames
   buttonsFrame <- gframe("Dados de Entrada", container = Groupbuttons, horizontal = FALSE) #
   gbutton("Desenhe", cont= Groupbuttons, handler = falsa)
-  valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE)
+  valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE, expand = TRUE)
   mk_output <- gtext("", container=valueframe, expand = TRUE)
 
   ##= Criacao das opcoes graficas
-  checkboxframe <- gframe("Opcoes", container =Groupgraphic, horizontal = TRUE)
-  glabel("Selecione antes do Plot", container= checkboxframe)
-  pont <- gcheckbox("Indices de x", checked = FALSE, cont =checkboxframe)
+  checkboxframe <- gframe("Opções Gráficas", container =Groupgraphic, horizontal = TRUE)
+  glabel("", container= checkboxframe)
+  pont <- gcheckbox("Índices das aproximações", checked = FALSE, cont =checkboxframe)
   linsc <- gcheckbox("Linha secante", checked = TRUE, cont= checkboxframe, expand = TRUE)
 
   ##= Criacao da area do zoom
-  zoomGraphFrame <- gframe("Zoom do grafico principal", container = Groupbuttons, horizontal = FALSE)
+  zoomGraphFrame <- gframe("Zoom do gráfico principal", container = Groupbuttons, horizontal = FALSE)
   gg2<-ggraphics(container = zoomGraphFrame,  width = 220, height = 220)
 
   ##= Criacao da area do plot principal
   mainGrapghFrame <- gframe("Grafico Principal", container = Groupgraphic)
-  gg<-ggraphics(container = mainGrapghFrame, width = 503, height = 503)
+  gg<-ggraphics(container = mainGrapghFrame, width = 650, height = 650)
 
   ##= Area de entrada dos dados
-  functionframe <- gframe("Funcao", container = buttonsFrame, horizontal = TRUE)
-  env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)")
+  functionframe <- gframe("Função", container = buttonsFrame, horizontal = TRUE)
+  env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)", expand = TRUE)
 
   intervalframe <- gframe("Intervalo", container = buttonsFrame, horizontal = TRUE)
-  glabel("Intervalo em x:", container = intervalframe)
-  env_pts<-gedit("", width = 21,cont = intervalframe, initial.msg = "Separados por espaco")
+  glabel("Intervalo no eixo x:", container = intervalframe)
+  env_pts<-gedit("", width = 21,cont = intervalframe, initial.msg = "Separados por espaço", expand = TRUE)
 
-  stopframe <- gframe("Precisao desejada", container= buttonsFrame, horizontal=TRUE)
-  glabel("No de casas decimais:", container = stopframe)
-  env_stop<-gedit("",width = 7, cont = stopframe, initial.msg = "ex.: 1 para 0,1")
-  glabel("No de iteracoes:", container = stopframe)
-  env_inter<-gedit("",width = 7, cont = stopframe, initial.msg = "ex.: 0 p/ ilimitado")
+  stopframe <- gframe("Precisão desejada", container= buttonsFrame, horizontal=FALSE)
+  tf1<-ggroup(container = stopframe, horizontal=TRUE )
+  glabel("Número de casas decimais:", container = tf1)
+  env_stop<-gedit("",width = 7, cont = tf1, initial.msg = "ex.: 2 para duas casas decimais", expand = TRUE)
+  tf2<-ggroup(container = stopframe, horizontal=TRUE )
+  glabel("Número máximo de iterações:", container = tf2)
+  env_inter<-gedit("",width = 7, cont = tf2, initial.msg = "Preenchimento não obrigatório", expand = TRUE)
 
-  sppedframe <- gframe("Velocidade da animacao", container= buttonsFrame, horizontal=TRUE)
+
+  sppedframe <- gframe("Velocidade da animação", container= buttonsFrame, horizontal=TRUE)
   glabel("Tempo em segundos:", container = sppedframe)
-  env_speed<-gedit("",width = 35, cont = sppedframe, initial.msg = "Intervalo de tempo entre as iteracoes")
+  env_speed<-gedit("",width = 35, cont = sppedframe, initial.msg = "Intervalo de tempo entre as iterações", expand = TRUE)
 
   ##= Criacao do botao de saida
   exit_func<-function(h,...){dispose(winfalse)}
@@ -517,21 +524,21 @@ FALSAPOSICAO <-function()
 }
 ###########################################################################################
 #' Método Newton-Rapson:
-#' Ilustra as iteracoes feitas pelo metodo  Newton_Raphson, que obtem aproximacoes para as raizes de uma dada funcao real.
+#' Ilustra as iterações feitas pelo metodo  Newton_Raphson, que obtem aproximações para as raizes de uma dada funcao real.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)
-#' @param Pto_inicial "chute inicial"
-#' @param Intervalo_x Define o intervalo no eixo x de visualizacao da funcao dada, separados por espaco e na ordem crescente
-#' @param N_Casas Numero de casas decimais correspondente a precisao desejada
-#' @param N_Iteracoes Numero maximo de iteracoes
+#' @param Pto_inicial "Aproximação inicial"
+#' @param Intervalo_x Define o intervalo no eixo x de visualizacao da funcao dada, separados por espaço e na ordem crescente
+#' @param N_Casas Número de casas decimais correspondente a precisao desejada
+#' @param N_Iteracoes Número maximo de iterações
 #' @param Tempo Tempo de exibicao de cada iteracao
-#' @param OG_Indices Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não
+#' @param OG_Indices Determina se os indices das aproximações obtidas em cada iteracao serao exibidos ou não
 #' @param OG_Linha_Tangante Determina se as retas tangentes ao grafico, utilizadas pelo metodo serao exibidas ou não
 #' @param OG_Linha_vertical Determina se as linhas verticais ligando o ponto da funcao no eixo x serao exibidas ou nao
 NEWTONRAPSON <-function()
 {
   #== Mensagem inicial na area de resultados
-  valuetextm <- "Aproximacoes obtidas"
+  valuetextm <- "Aproximações obtidas"
 
   ##================================================================
   ##========== FUNCOES
@@ -577,7 +584,7 @@ NEWTONRAPSON <-function()
         error.x0 <- gwindow("Erro")
         error.x0gt <- ggroup(horizontal = FALSE, container = error.x0)
         error.x0gb <- ggroup(horizontal = FALSE, container = error.x0)
-        error.x0label <- glabel("a derivada da funcao tem valor zero no ponto x0 dado como chute inicial", container=error.x0gt)
+        error.x0label <- glabel("a derivada da funcao tem valor zero no ponto x0 dado como aproximação inicial", container=error.x0gt)
         exit.x0 <-function(h,...){dispose(error.x0)}
         gbutton("Ok", cont= error.x0gb, handler = exit.x0)
         stop
@@ -627,7 +634,7 @@ NEWTONRAPSON <-function()
     #
 
     visible(gg) <- TRUE #= area grafica gg recebe o plot
-    plot(func, xlim = c(a0, b0), col = "red", xlab="Eixo x", ylab="Eixo y", container= gg) #= plot da curva
+    plot(func, xlim = c(a0, b0), col = "red", xlab="Eixo x", ylab="Eixo y") #= plot da curva
     abline(h=0, lty=2)
     abline(v=0, lty=2)
     z_k <- rep(0, cont) ## Vetor de zeros do tamanho do vetor m_k
@@ -662,11 +669,11 @@ NEWTONRAPSON <-function()
     dx <- (b0-a0)/10
     visible(gg2) <- TRUE #agora a area grafica gg2 que ira receber o plot
     par(mar=rep(0, 4)) #margem
-    plot(func, xlim=c(x_k[cont] - dx,x_k[cont] + dx), col = "red", xlab="Eixo x", ylab="Eixo y", container= gg) #plot da funcao
+    plot(func, xlim=c(x_k[cont] - dx,x_k[cont] + dx), col = "red", xlab="Eixo x", ylab="Eixo y") #plot da funcao
     abline(h=0, lty=2)
     abline(v=0, lty=2)
 
-    points(x_k[1:cont], z_k[1:cont], col="blue", pch = 1, cer = 5) # Plot dos pontos m_k sobre o eixo x
+    points(x_k[1:cont], z_k[1:cont], col="blue", pch = 1) # Plot dos pontos m_k sobre o eixo x
     index <-c(0:cont)
     if(svalue(pont)){
       text(x_k[1:cont],z_k[1:cont],index,cex=0.65, pos=3, col="blue")
@@ -683,13 +690,13 @@ NEWTONRAPSON <-function()
       #  segments(x_k[i],0.0,x_k[i],fx_k[i], col= "azure4", lty=2)
     #}
     #Resultados a serem mostrados ao usuario
-    valuetextm <- paste("Aproximacoes: ",paste0(x_k, collapse =" | "))
+    valuetextm <- paste("Aproximações: ",paste0(x_k, collapse =" | "))
     insert(xk_output,valuetextm)
   }
 
   #===========================================================================
   #INTERFACE
-  winnewton <- gwindow("Metodo de Newton-raphson") #Criacao da janela
+  winnewton <- gwindow("Método de Newton-Raphson") #Criacao da janela
 
   ##= Criacao dos grupos
   Groupbuttons <- ggroup(container = winnewton, horizontal=FALSE)
@@ -698,12 +705,12 @@ NEWTONRAPSON <-function()
   ##= Cricao dos frames
   buttonsFrame <- gframe("Dados de Entrada", container = Groupbuttons, horizontal = FALSE)
   gbutton("Desenhe", cont= Groupbuttons, handler = newtonraphson)
-  valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE)
+  valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE, expand = TRUE)
   xk_output <- gtext("", container=valueframe, expand = TRUE)
 
   ##= Criacao das opcoes graficas
-  checkboxframe <- gframe("Opcoes Graficas", container =Groupgraphic, horizontal = TRUE)
-  pont <- gcheckbox("Indices dos pontos", checked = FALSE, cont =checkboxframe)
+  checkboxframe <- gframe("Opções gráficas", container =Groupgraphic, horizontal = TRUE)
+  pont <- gcheckbox("Índices dos pontos", checked = FALSE, cont =checkboxframe)
   lintg <- gcheckbox("Linhas tangentes", checked = TRUE, cont = checkboxframe)
   linvt <- gcheckbox("Linhas verticais", checked = TRUE, cont= checkboxframe)
 
@@ -713,29 +720,32 @@ NEWTONRAPSON <-function()
 
   ##= Criacao da area do plot principal
   mainGrapghFrame <- gframe("Grafico Principal", container = Groupgraphic)
-  gg<-ggraphics(container = mainGrapghFrame, width = 545, height = 545)
+  gg<-ggraphics(container = mainGrapghFrame, width = 650, height = 650)
 
   ##= area de entrada dos dados
   functionframe <- gframe("Funcao", container = buttonsFrame, horizontal = TRUE)
-  env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)")
+  env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)",  expand = TRUE)
 
-  intervalframe <- gframe("Chute inicial", container = buttonsFrame, horizontal = TRUE)
+  intervalframe <- gframe("Aproximação inicial", container = buttonsFrame, horizontal = TRUE)
   glabel("Ponto de inicio:", container = intervalframe)
-  env_x0<-gedit("", width = 14,cont = intervalframe, initial.msg = "x0")
+  env_x0<-gedit("", width = 14,cont = intervalframe, initial.msg = "x0",  expand = TRUE)
 
   interframe <- gframe("Intervalo do plot", container = buttonsFrame, horizontal = TRUE)
-  glabel("Intervalo em x:", container = interframe)
-  env_pts<-gedit("", width = 14,cont = interframe, initial.msg = "Separado por espaco")
+  glabel("Intervalo no eixo x:", container = interframe)
+  env_pts<-gedit("", width = 14,cont = interframe, initial.msg = "Separado por espaço",  expand = TRUE)
 
-  stopframe <- gframe("Precisao desejada", container= buttonsFrame, horizontal=TRUE)
-  glabel("No de casas decimais:", container = stopframe)
-  env_stop<-gedit("",width = 7, cont = stopframe, initial.msg = "ex.: 1 para 0,1")
-  glabel("No de iteracoes:", container = stopframe)
-  env_inter<-gedit("",width = 7, cont = stopframe, initial.msg = "ex.: 0 p/ ilimitado")
+
+  stopframe <- gframe("Precisão desejada", container= buttonsFrame, horizontal=FALSE)
+  tf1<-ggroup(container = stopframe, horizontal=TRUE )
+  glabel("Número de casas decimais:", container = tf1)
+  env_stop<-gedit("", cont = tf1, initial.msg = "ex.: 2 para duas casas decimais", expand = TRUE)
+  tf2<-ggroup(container = stopframe, horizontal=TRUE )
+  glabel("Número máximo de iterações:", container = tf2)
+  env_inter<-gedit("", cont = tf2, initial.msg = "Preenchimento não obrigatório", expand = TRUE)
 
   speedframe <- gframe("Velocidade da animacao", container= buttonsFrame, horizontal=TRUE)
   glabel("Tempo em segundos:", container = speedframe)
-  env_speed<-gedit("",width = 35, cont = speedframe, initial.msg = "Intervalo de tempo entre as iteracoes")
+  env_speed<-gedit("",width = 35, cont = speedframe, initial.msg = "Intervalo de tempo entre as iterações",  expand = TRUE)
 
   ##= Botao de saida
   exit_func<-function(h,...){dispose(winnewton)}
@@ -752,27 +762,27 @@ NEWTONRAPSON <-function()
 
 }
 ###########################################################################################
-#' Aproximacao pelo metodo das secantes:
-#' Ilustra as iteracoes feitas pelo metodo  Método da Secante, que obtem aproximacoes para as raizes de uma dada funcao real.
+#' Aproximacao pelo método das secantes:
+#' Ilustra as iteracoes feitas pelo método  Método da Secante, que obtem aproximações para as raizes de uma dada funcao real.
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)
-#' @param Intervalo_x Intervalo contento a raiz da funcao, separado por espaco, exemplo: -5 6
-#' @param N_Casas Numero de casas decimais correspondente a precisao desejada
-#' @param N_Iteracoes Define o numero maximo de iteracao, 0 (zero) para limitar apenas pelas casas decimais
+#' @param Intervalo_x Intervalo contento a raiz da funcao, separado por espaço, exemplo: -5 6
+#' @param N_Casas Número de casas decimais correspondente a precisao desejada
+#' @param N_Iteracoes Define o Número maximo de iteracao, 0 (zero) para limitar apenas pelas casas decimais
 #' @param Tempo Tempo de exibicao de cada iteracao
-#' @param OG_Indices Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não
-#' @param OG_Linha_secante  Determina se as retas secantes ao grafico, utilizadas pelo metodo serao exibidas ou não
+#' @param OG_Indices Determina se os indices das aproximações obtidas em cada iteracao serao exibidos ou não
+#' @param OG_Linha_secante  Determina se as retas secantes ao grafico, utilizadas pelo método serao exibidas ou não
 #' @param OG_Linha_vertical Determina se as linhas verticais ligando o ponto da funcao no eixo x serao exibidas ou nao
 SECANTE <-function()
 {
   #== Mensagem inicial na area de resultados
-  valuetextm <- "Aproximacoes obtidas"
+  valuetextm <- "Aproximações obtidas"
 
   ##================================================================
   ##========== FUNCOES
 
 
-  #==== Funcao principal (que faz o metodo)
-  secante<- function(h,...) #Fun??o principal (que faz o metodo)
+  #==== Funcao principal (que faz o método)
+  secante<- function(h,...) #Fun??o principal (que faz o método)
   {
     #== Valores de entrada
     f<-svalue(env_function)
@@ -835,7 +845,7 @@ SECANTE <-function()
    #   gbutton("Ok", cont= error.x0gt, handler = exit.x0)
    # }
 
-    #===Comeco do metodo em si
+    #===Comeco do método em si
     #
     #else{
       while(whileaux == -1) # Garantir que seja ate o criterio ser atingido
@@ -851,7 +861,7 @@ SECANTE <-function()
         if(abs(fx_k[cont])<stp){whileaux <- 1}
       }
 
-      #==== Plot do metodo
+      #==== Plot do método
 
       visible(gg) <- TRUE #Agora a area grafica gg que ira receber o plot
 
@@ -935,9 +945,8 @@ SECANTE <-function()
       }
 
       #Resultados a serem mostrados ao usuario
-      valuetextm <- paste0(x_k, collapse =" | ")
+      valuetextm <- paste("Aproximações: ",paste0(x_k, collapse =" | "))
       insert(xk_output,valuetextm)
-    #}
 
 
 
@@ -945,7 +954,7 @@ SECANTE <-function()
 
   #===========================================================================
   #INTERFACE
-  winsecante <- gwindow("Metodo das Secantes") #= janela principal
+  winsecante <- gwindow("Método da Secante") #= janela principal
 
   ##= Criacao dos grupos
   Groupbuttons <- ggroup(container = winsecante, horizontal=FALSE)
@@ -954,13 +963,13 @@ SECANTE <-function()
   ##= Cricao dos frames
   buttonsFrame <- gframe("Dados de Entrada", container = Groupbuttons, horizontal = FALSE)
   gbutton("Desenhe", cont= Groupbuttons, handler = secante)
-  valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE)
+  valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE, expand = TRUE)
   xk_output <- gtext("", container=valueframe, expand = TRUE)
 
   ##= Criacao das opcoes graficas
-  checkboxframe <- gframe("Opcoes", container =Groupgraphic, horizontal = TRUE)
+  checkboxframe <- gframe("Opções", container =Groupgraphic, horizontal = TRUE)
   glabel("Selecione antes do Plot", container= checkboxframe)
-  pont <- gcheckbox("Indices de x", checked = FALSE, cont =checkboxframe)
+  pont <- gcheckbox("Índices de x", checked = FALSE, cont =checkboxframe)
   linsc <- gcheckbox("Linhas Secantes", checked = TRUE, cont = checkboxframe)
   linvt <- gcheckbox("Linhas verticais", checked = TRUE, cont= checkboxframe)
 
@@ -970,31 +979,32 @@ SECANTE <-function()
 
   ##= Criacao da area do plot principal
   mainGrapghFrame <- gframe("Grafico Principal", container = Groupgraphic)
-  gg<-ggraphics(container = mainGrapghFrame, width = 503, height = 503)
+  gg<-ggraphics(container = mainGrapghFrame, width = 650, height = 650)
 
   ##= area de entrada dos dados
   functionframe <- gframe("Funcao", container = buttonsFrame, horizontal = TRUE)
-  env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)")
+  env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)", expand = TRUE)
 
   intervalframe <- gframe("Intervalo", container = buttonsFrame, horizontal = TRUE)
-  glabel("Intervalo em x:", container = intervalframe)
-  env_pts<-gedit("", width = 14,cont = intervalframe, initial.msg = "Separados por espaco")
+  glabel("Intervalo no eixo x:", container = intervalframe)
+  env_pts<-gedit("", width = 14,cont = intervalframe, initial.msg = "Separados por espaço", expand = TRUE)
 
-  intervalframe <- gframe("Chutes Inicial", container = buttonsFrame, horizontal = TRUE)
+  intervalframe <- gframe("Aproximações Iniciais", container = buttonsFrame, horizontal = TRUE)
   glabel("x0 e x1:", container = intervalframe)
-  env_init<-gedit("", width = 14,cont = intervalframe, initial.msg = "Separados por espaco")
+  env_init<-gedit("", width = 14,cont = intervalframe, initial.msg = "Separados por espaço", expand = TRUE)
 
 
-
-  stopframe <- gframe("Precisao desejada", container= buttonsFrame, horizontal=TRUE)
-  glabel("Decimais:", container = stopframe)
-  env_stop<-gedit("",width = 10, cont = stopframe, initial.msg = "ex.: 1 para 0,1")
-  glabel("Iteracoes:", container = stopframe)
-  env_stpcont <- gedit("", width = 10, cont = stopframe, initial.msg = "Caso nao tenha digite 0")
+  stopframe <- gframe("Precisão desejada", container= buttonsFrame, horizontal=FALSE)
+  tf1<-ggroup(container = stopframe, horizontal=TRUE )
+  glabel("Número de casas decimais:", container = tf1)
+  env_stop<-gedit("", cont = tf1, initial.msg = "ex.: 2 para duas casas decimais", expand = TRUE)
+  tf2<-ggroup(container = stopframe, horizontal=TRUE )
+  glabel("Número máximo de iterações:", container = tf2)
+  env_stpcont<-gedit("", cont = tf2, initial.msg = "Preenchimento não obrigatório", expand = TRUE)
 
   speedframe <- gframe("Velocidade da animacao", container= buttonsFrame, horizontal=TRUE)
   glabel("Tempo em segundos:", container = speedframe)
-  env_speed<-gedit("",width = 35, cont = speedframe, initial.msg = "Intervalo de tempo entre as iteracoes")
+  env_speed<-gedit("",width = 35, cont = speedframe, initial.msg = "Intervalo de tempo entre as iterações", expand = TRUE)
 
   ##= criacao do botao de saida
   exit_func<-function(h,...){dispose(winsecante)}
@@ -1012,11 +1022,11 @@ SECANTE <-function()
 ##########################################################################################
 
 ############################################################################################
-#' Metodo dos Trapezios:
-#' Ilustra as iteracoes feitas pelo metodo dos trapezios, metodo que aproxima o valor da integral de uma função em um dado intervalo.
+#' método dos Trapezios:
+#' Ilustra as iterações feitas pelo método dos trapezios, método que aproxima o valor da integral de uma função em um dado intervalo.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja calcular a integral
-#' @param Intervalo Intervalo onde sera feita a aproximacao da integral, separado por espaco, exemplo: -3 9.87
+#' @param Intervalo Intervalo onde sera feita a aproximacao da integral, separado por espaço, exemplo: -3 9.87
 #' @param Numero_de_Intervalos Define em quantas vezes o intervalo dado sera dividido
 #' @param Tempo Regula quanto tempo durara cada iteracao
 #' @param OG_Indices Determina se os indices dos pontos serao exibidos
@@ -1025,13 +1035,13 @@ SECANTE <-function()
 TRAPEZIOS <-function()
 {
   #== Mensagem inicial na area de resultados
-  valuetextm <- "Aproximacoes obtidas"
+  valuetextm <- "Aproximações obtidas"
 
   ##================================================================
   ##========== FUNCOES
 
 
-  #==== Funcao principal (que faz o metodo)
+  #==== Funcao principal (que faz o método)
   integral<- function(h,...)
   {
     #== Valores de entrada
@@ -1059,7 +1069,7 @@ TRAPEZIOS <-function()
     DevFunc2 <- function(x){eval(D(D(func2,"x"),"x"))}
     DevFunc3 <- function(x){eval(D(D(D(func2,"x"),"x"),"x"))}
 
-    #=== funcao com o calculo da soma do metodo
+    #=== funcao com o calculo da soma do método
     trapezoid <- function(fun, a, b, n) {
       h <- (b-a)/n
       x <- seq(a, b, by=h)
@@ -1068,7 +1078,7 @@ TRAPEZIOS <-function()
       return(s)
     }
 
-    ##= Variavel com a soma do metodo
+    ##= Variavel com a soma do método
     soma <- abs(trapezoid(func, limitx[1], limitx[2], div + 1))
 
     ##= Vetores com os valores de x
@@ -1124,7 +1134,7 @@ TRAPEZIOS <-function()
     #vetor de zeros para o plot
     z_k <- rep(0, (div+1))
 
-    #==== Plot do metodo
+    #==== Plot do método
     #
     visible(gg) <- TRUE #a area grafica gg que passara a receber os plots
     plot(func, xlim=c(xmin, xmax), col = "red", xlab="Eixo x", ylab="Eixo y")#Plot da f(x)
@@ -1175,7 +1185,7 @@ TRAPEZIOS <-function()
       }
 
       #Resultados a serem mostrados ao usuario
-      valuetextm <- paste0("\n valor da soma pelo metodo: ",soma,"\n", "O erro do metodo: ",Errotrap)
+      valuetextm <- paste0("\n valor da soma pelo método: ",soma,"\n", "O erro do método: ",Errotrap)
       dispose(xk_output)
       insert(xk_output,valuetextm)
 
@@ -1184,7 +1194,7 @@ TRAPEZIOS <-function()
 
   #===========================================================================
   #INTERFACE
-  wintrapezio <- gwindow("Metodo dos Trapezios") #Criacao da janela
+  wintrapezio <- gwindow("Método dos Trapezios") #Criacao da janela
 
   ##= Criacao dos grupos
   Groupbuttons <- ggroup(container = wintrapezio, horizontal=FALSE)
@@ -1197,31 +1207,31 @@ TRAPEZIOS <-function()
   xk_output <- gtext("", container=valueframe, expand = TRUE, width = 300)
 
   ##= Criacao das opcoes graficas
-  checkboxframe <- gframe("Opcoes", container =Groupgraphic, horizontal = TRUE)
+  checkboxframe <- gframe("Opções", container =Groupgraphic, horizontal = TRUE)
   glabel("Selecione antes do Plot", container= checkboxframe)
-  pont <- gcheckbox("Indices de x", checked = FALSE, cont =checkboxframe)
+  pont <- gcheckbox("Índices de x", checked = FALSE, cont =checkboxframe)
   pint <- gcheckbox("Pintar Area", checked = TRUE, cont = checkboxframe)
   linvt <- gcheckbox("Linhas verticais", checked = TRUE, cont= checkboxframe)
 
   ##= Criacao da area do plot principal
   mainGrapghFrame <- gframe("Grafico Principal", container = Groupgraphic)
-  gg<-ggraphics(container = mainGrapghFrame, width = 500,height = 500)
+  gg<-ggraphics(container = mainGrapghFrame, width = 650,height = 650)
 
   ##= area de entrada dos dados
   functionframe <- gframe("Funcao", container = buttonsFrame, horizontal = TRUE)
   env_function<-gedit("", cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)", expand = TRUE)
 
   intervalframe <- gframe("Intervalo", container = buttonsFrame, horizontal = TRUE)
-  glabel("Limites em x:", container = intervalframe)
+  glabel("Intervalo no eixo x:", container = intervalframe)
   env_entr<-gedit("",cont = intervalframe, initial.msg = "ex.: -2 3", expand = TRUE)
 
   stopframe <- gframe("Divisoes", container= buttonsFrame, horizontal=TRUE)
-  glabel("Numero de intervalos:", container = stopframe)
+  glabel("Número de subintervalos:", container = stopframe)
   env_div<-gedit("", cont = stopframe, initial.msg = "ex.: 5", expand = TRUE)
 
   speedframe <- gframe("Velocidade da animacao", container= buttonsFrame, horizontal=TRUE)
   glabel("Tempo em segundos:", container = speedframe)
-  env_speed<-gedit("", cont = speedframe, initial.msg = "Intervalo de tempo entre as iteracoes", expand = TRUE)
+  env_speed<-gedit("", cont = speedframe, initial.msg = "Intervalo de tempo entre as iterações", expand = TRUE)
 
   ##= criacao do botao de saida
   exit_func<-function(h,...){dispose(wintrapezio)}
@@ -1237,25 +1247,25 @@ TRAPEZIOS <-function()
  # getToolkitWidget(winbissection)$setIcon(img$retval)
 }
 ###########################################################################################
-#' Metodo de Simpson:
-#' Ilustra as iteracoes feitas pelo metodo dos Simpson, que aproxima o valor da integral de uma funcao em um dado intervalo.
+#' Método de Simpson:
+#' Ilustra as iteracoes feitas pelo método dos Simpson, que aproxima o valor da integral de uma funcao em um dado intervalo.
 #'
 #' @param Funcao A equacao que descreve a funcao para a qual se deseja calcular a integral
-#' @param Intervalo Intervalo onde sera feita a aproximacao da integral, separado por espaco, exemplo: -3 9
+#' @param Intervalo Intervalo onde sera feita a aproximacao da integral, separado por espaço, exemplo: -3 9
 #' @param Numero_de_Intervalos Define em quantas vezes o intervalo dado sera dividido
 #' @param Tempo Regula quanto tempo durara cada iteracao
-#' @param OG_Indices Determina se os indices dos pontos serao exibidos
-#' @param OG_Pintar_Area Determina se a area abaixo das curvas formadas pelo metodo devem ser pintadas ou nao
+#' @param OG_Indices Determina se os índices dos pontos serao exibidos
+#' @param OG_Pintar_Area Determina se a area abaixo das curvas formadas pelo método devem ser pintadas ou nao
 #' @param OG_Linhas_Verticais Determina se serao plotadas as linhas verticais associados a cada ponto
 SIMPSON <-function()
 {
   #== Mensagem inicial na area de resultados
-  valuetextm <- "Aproximacoes obtidas"
+  valuetextm <- "Aproximações obtidas"
 
   ##================================================================
   ##========== FUNCOES
 
-  #==== Funcao principal (que faz o metodo)
+  #==== Funcao principal (que faz o método)
   integral<- function(h,...)
   {
     #== Valores de entrada
@@ -1293,14 +1303,14 @@ SIMPSON <-function()
       error.INTERIMP <- gwindow("Erro", width = 15)
       error.IIgt <- ggroup(horizontal = FALSE, container = error.INTERIMP)
       error.IIgb <- ggroup(horizontal = FALSE, container = error.INTERIMP)
-      error.FAlabel <- glabel("O numero de intervalos e impar, favor forneca um numero par.", container=error.IIgt)
+      error.FAlabel <- glabel("O número de subintervalos é impar, favor forneca um número par de subintervalos.", container=error.IIgt)
       exit.II <-function(h,...){dispose(error.INTERIMP)}
       gbutton("Ok", cont= error.IIgb, handler = exit.II)
       stop
     }
 
     else{
-      #===Comeco do metodo em si
+      #===Comeco do método em si
       #
       simpson <- function(fun, a, b, n) {
         h <- (b-a)/n
@@ -1355,7 +1365,7 @@ SIMPSON <-function()
       }
       Errosimp<- - valmax*(((xmax-xmin)*(h^4))/(180)) #Erro propriamente
 
-      #==== Plot do metodo
+      #==== Plot do método
       #
       visible(gg) <- TRUE
       plot(func, xlim=c(xmin,xmax), col = "red", xlab="eixo x", ylab="eixo y")
@@ -1414,7 +1424,7 @@ SIMPSON <-function()
       abline(h=0, lty=2)
 
       #Resultados a serem mostrados ao usuario
-      valuetextm <- paste0("O resultado da soma do m?todo ?:",soma,"\n","O erro do m?todo ?:", Errosimp,"\n")
+      valuetextm <- paste0("Resultado obtido pelo método:",soma,"\n","Limitante para o erro obtido", Errosimp,"\n")
       insert(xk_output,valuetextm)
 
     }
@@ -1422,7 +1432,7 @@ SIMPSON <-function()
 
   #===========================================================================
   #INTERFACE
-  winsimpson <- gwindow("Metodo de Simpson") #Criacao da janela
+  winsimpson <- gwindow("Método de Simpson") #Criacao da janela
 
   ##= Criacao dos grupos
   Groupbuttons <- ggroup(container = winsimpson, horizontal=FALSE)
@@ -1431,35 +1441,35 @@ SIMPSON <-function()
   ##= Cricao dos frames
   buttonsFrame <- gframe("Dados de Entrada", container = Groupbuttons, horizontal = FALSE)
   gbutton("Desenhe", cont= Groupbuttons, handler = integral)
-  valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE)
-  xk_output <- gtext("", container=valueframe, expand = TRUE, width = 300)
+  valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE, expand = TRUE)
+  xk_output <- gtext("", container=valueframe, expand = TRUE)
 
   ##= Criacao das opcoes graficas
-  checkboxframe <- gframe("Opcoes", container =Groupgraphic, horizontal = TRUE)
+  checkboxframe <- gframe("Opções", container =Groupgraphic, horizontal = TRUE)
   glabel("Selecione antes do Plot", container= checkboxframe)
-  pont <- gcheckbox("Indices de x", checked = FALSE, cont =checkboxframe)
+  pont <- gcheckbox("Índices de x", checked = FALSE, cont =checkboxframe)
   pint <- gcheckbox("Pintar area", checked = TRUE, cont = checkboxframe)
   linvt <- gcheckbox("Linhas verticais", checked = TRUE, cont= checkboxframe)
 
   ##= Criacao da area do plot principal
   mainGrapghFrame <- gframe("Grafico Principal", container = Groupgraphic)
-  gg<-ggraphics(container = mainGrapghFrame, width = 500, height = 500)
+  gg<-ggraphics(container = mainGrapghFrame, width = 650, height = 650)
 
   ##= area de entrada dos dados
   functionframe <- gframe("Funcao", container = buttonsFrame, horizontal = TRUE)
   env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)")
 
   intervalframe <- gframe("Intervalo", container = buttonsFrame, horizontal = TRUE)
-  glabel("Limites em x:", container = intervalframe)
+  glabel("Intervalo no eixo x:", container = intervalframe)
   env_entr<-gedit("", width = 14,cont = intervalframe, initial.msg = "ex.: -2 3")
 
   stopframe <- gframe("Divisoes", container= buttonsFrame, horizontal=TRUE)
-  glabel("Numero de intervalos:", container = stopframe)
+  glabel("Número de intervalos:", container = stopframe)
   env_div<-gedit("",width = 20, cont = stopframe, initial.msg = "ex.: 5")
 
   speedframe <- gframe("Velocidade da animacao", container= buttonsFrame, horizontal=TRUE)
   glabel("Tempo em segundos:", container = speedframe)
-  env_speed<-gedit("",width = 35, cont = speedframe, initial.msg = "Intervalo de tempo entre as iteracoes")
+  env_speed<-gedit("",width = 35, cont = speedframe, initial.msg = "Intervalo de tempo entre as iterações")
 
   ##= criacao do botao de saida
   exit_func<-function(h,...){dispose(winsimpson)}
@@ -1478,17 +1488,17 @@ SIMPSON <-function()
 #' Interpolacao por Lagrange - Pontos:
 #' Interpola polinomialmente um conjunto de pontos, e a partir da interpolacao obtida aproxima o valor da funcao em um dado ponto.
 #'
-#' @param Valores_em_x As coordenadas no eixo x dos pontos utilizados na interpolacao, separados por espaco e na ordem crescente, exemplo.: -9 -3 0.58 8 22
-#' @param Valores_em_y As coordenadas no eixo y dos pontos utilizados na interpolacao, separados por espaco, a quantidade de termos deve ser igual a do eixo x
+#' @param Valores_em_x As coordenadas no eixo x dos pontos utilizados na interpolacao, separados por espaço e na ordem crescente, exemplo.: -9 -3 0.58 8 22
+#' @param Valores_em_y As coordenadas no eixo y dos pontos utilizados na interpolacao, separados por espaço, a quantidade de termos deve ser igual a do eixo x
 #' @param Pto_aproximado valor de x para o qual a funcao sera aproximada pela polinomio interpolador
-#' @param Intervalo_x Define qual o intervalo do plot no eixo x, separados por espaco e na ordem crescente
-#' @param OG_Indice Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não
+#' @param Intervalo_x Define qual o intervalo do plot no eixo x, separados por espaço e na ordem crescente
+#' @param OG_Indice Determina se os indices das aproximações obtidas em cada iteracao serao exibidos ou não
 #' @param OG_Animacao Determina se a funcao interpolada sera visualizada com animacao ou sera plotada de uma so vez
 #' @param OG_Linhas_Verticais  Determina se as linhas verticais ligando o ponto da funcao no eixo x serao exibidas ou nao
 INTERPOLACAOPONTOS <-function()
 {
   #== Mensagem inicial na area de resultados
-  valuetextm <- "Aproximacoes obtidas"
+  valuetextm <- "Aproximações obtidas"
 
   ##================================================================
   ##========== FUNCOES
@@ -1618,7 +1628,7 @@ INTERPOLACAOPONTOS <-function()
     }
 
     #Resultados a serem mostrados ao usuario
-    valuetextm <- paste0("O valor aproximado pela interpolacao e: ",Valaprmy,"\n")
+    valuetextm <- paste0("Valor obtido pelo método: ",Valaprmy,"\n")
     insert(xk_output,valuetextm)
 
   }
@@ -1639,23 +1649,23 @@ INTERPOLACAOPONTOS <-function()
   xk_output <- gtext("", container=valueframe, expand = TRUE, width = 220, height = 100, expand=TRUE)
 
   ##= Criacao das opcoes graficas
-  checkboxframe <- gframe("Opc?es", container =Groupgraphic, horizontal = TRUE)
+  checkboxframe <- gframe("Opções Gráficas", container =Groupgraphic, horizontal = TRUE)
   glabel("Selecione antes do Plot", container= checkboxframe)
-  pont <- gcheckbox("Indices de x", checked = FALSE, cont =checkboxframe)
+  pont <- gcheckbox("Índices de x", checked = FALSE, cont =checkboxframe)
   anim <- gcheckbox("Animacao da funcao", checked=TRUE, cont=checkboxframe)
   linvt <- gcheckbox("Linhas verticais", checked = TRUE, cont= checkboxframe)
 
 
   ##= Criacao da area do plot
   mainGrapghFrame <- gframe("Grafico Principal", container = Groupgraphic)
-  gg<-ggraphics(container = mainGrapghFrame, width = 500, height = 500)
+  gg<-ggraphics(container = mainGrapghFrame, width = 650, height = 650)
 
   ##= area de entrada dos dados
   pointsframe <- gframe("Pontos", container = buttonsFrame, horizontal = FALSE)
   glabel("Valores em x", container = pointsframe)
-  env_points_x<-gedit("",width = 50, cont = pointsframe, initial.msg = "Separados por espaco")
+  env_points_x<-gedit("",width = 50, cont = pointsframe, initial.msg = "Separados por espaço")
   glabel("Valores em y", container = pointsframe)
-  env_points_y<-gedit("", width = 50,cont = pointsframe, initial.msg = "Separados por espaco")
+  env_points_y<-gedit("", width = 50,cont = pointsframe, initial.msg = "Separados por espaço")
 
   pointframe <- gframe("Aproximacao", container= buttonsFrame, horizontal=TRUE)
   glabel("Ponto a ser aproximado", container = pointframe)
@@ -1684,23 +1694,23 @@ INTERPOLACAOPONTOS <-function()
 #' Interpola polinomialmente pontos de uma dada funcao, e a partir da interpolacao obtida aproxima o valor da funcao em um dado ponto.
 #'
 #' @param Funcao A funcao que sera usada para dar os pontos em y e entao ser feita a interpolacao
-#' @param Valores_em_x As coordenadas em x dos pontos utilizados na interpolacao, separados por espaco e em ordem crescente, exemplo: -5.58 -1 2.2 8
-#' @param Pto_aproximado Escolha de qual ponto quer ser aproximado a partir da aproximacao pela interpolacao
-#' @param Intervalo_x Define qual o intervalo do plot no eixo x, separados por espaco e na ordem crescente
-#' @param Intervalo_y Define qual o intervalo do plot no eixo y, separados por espaco e na ordem crescente
-#' @param OG_Indice Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não
-#' @param OG_Animacao Determina se a funcao interpolada sera visualizada com animacao ou sera plotada de uma so vez
-#' @param OG_Linhas_Verticais  Determina se as linhas verticais ligando o ponto da funcao no eixo x serao exibidas ou nao
+#' @param Valores_em_x As coordenadas em x dos pontos utilizados na interpolação, separados por espaço e em ordem crescente, exemplo: -5.58 -1 2.2 8
+#' @param Pto_aproximado Escolha de qual ponto quer ser aproximado a partir da aproximação pela interpolação
+#' @param Intervalo_x Define qual o intervalo do plot no eixo x, separados por espaço e na ordem crescente
+#' @param Intervalo_y Define qual o intervalo do plot no eixo y, separados por espaço e na ordem crescente
+#' @param OG_Indice Determina se os índices das aproximações obtidas em cada iteração serao exibidos ou não
+#' @param OG_Animação Determina se a função interpolada sera visualizada com animação ou sera plotada de uma so vez
+#' @param OG_Linhas_Verticais  Determina se as linhas verticais ligando o ponto da função no eixo x serao exibidas ou nao
 INTERPOLACAOFUNCAO <-function()
 {
   #== Mensagem inicial na area de resultados
-  valuetextm <- "Aproximacoes obtidas"
+  valuetextm <- "Aproximações obtidas"
 
   ##================================================================
   ##========== FUNCOES
 
 
-  #==== Funcao principal (que faz o metodo)
+  #==== Função principal (que faz o metodo)
   polinomial2 <- function(h,...)
   {
     #== Valores de entrada
@@ -1767,7 +1777,7 @@ INTERPOLACAOFUNCAO <-function()
     eval(parse(text=f_text))# Transformando o texto salvo na variavel ftext em uma expressao
 
     Valaprmy2 <- PolLagrange2(valaprm2) # Valor no polinomio do ponto a ser aproximado
-    valrealy2 <- func(valaprm2) # Valor na funcao do ponto a ser aproximado
+    valrealy2 <- func(valaprm2) # Valor na função do ponto a ser aproximado
 
     #==== Plot do metodo
     #
@@ -1840,9 +1850,9 @@ INTERPOLACAOFUNCAO <-function()
     par(mar = rep(2,4)) #margem
 
     plot(PolLagrange2, xlim= c(valaprm2 - 0.5, valaprm2 + 0.5), ylim= c(yplot_min - 0.5,yplot_max + 0.5), col="red")#plot do polinomio
-    points(valaprm2, Valaprmy2, add = TRUE, col = "chartreuse4",  pch = 9) #= plot do ponto aproximado no polinimio
-    points(valaprm2, valrealy2, add = TRUE, col = "chartreuse4",  pch = 9) #= plot do ponto aproximado na f(c)
-    segments(valaprm2, valrealy2, valaprm2, Valaprmy2, col = "chartreuse4", add=TRUE) #= segmento de diferen?a entre os 2 pontos
+    points(valaprm2, Valaprmy2, col = "chartreuse4",  pch = 9) #= plot do ponto aproximado no polinimio
+    points(valaprm2, valrealy2, col = "chartreuse4",  pch = 9) #= plot do ponto aproximado na f(c)
+    segments(valaprm2, valrealy2, valaprm2, Valaprmy2, col = "chartreuse4") #= segmento de diferen?a entre os 2 pontos
     curve(func, col = "black", xlab="", ylab="", add= TRUE) #= plot funcao dada
 
     if(svalue(pont)){ #Caso seja marcado os pontos no checkbox
@@ -1851,49 +1861,49 @@ INTERPOLACAOFUNCAO <-function()
 
     #Resultados a serem mostrados ao usuario
     valerro <- (abs(Valaprmy2 - valrealy2)) # Calculo do erro absoluto
-    valuetextm2 <- paste0("O valor achado pelo m?todo ?: ",Valaprmy2,"\n", "O valor absoluto do erro ?: ",valerro)
+    valuetextm2 <- paste0("Valor obtido pelo método: ",Valaprmy2,"\n", "Valor absoluto do erro: ",valerro)
     insert(xk_output2,valuetextm2)
   }
 
 
   #===========================================================================
   #INTERFACE
-  winpolinomial <- gwindow("Interpoladqo por Lagrange - Funcao ") #Criacao da janela
+  winpolinomial <- gwindow("Interpolação por Lagrange - Função ") #Criação da janela
 
-  ##= Criacao dos grupos
+  ##= Criação dos grupos
   Groupbuttons2 <- ggroup(container = winpolinomial, horizontal=FALSE)
   Groupgraphic <- ggroup(container = winpolinomial, horizontal=FALSE)
 
-  ##= Criacao dos frames
+  ##= Criação dos frames
   buttonsFrame <- gframe("Dados de Entrada", container = Groupbuttons2, horizontal = FALSE)
   gbutton("Desenhe", cont= Groupbuttons2, handler = polinomial2)
   valueframe2 <- gframe("Resultados", container = Groupbuttons2, hozizontal = TRUE, expand = TRUE)
   xk_output2 <- gtext("", container=valueframe2, expand = TRUE, width = 220, height = 60, expand = TRUE)
 
-  ##= Criacao das opcoes graficas
-  checkboxframe <- gframe("Opcoes", container =Groupgraphic, horizontal = TRUE)
+  ##= Criação das opcoes graficas
+  checkboxframe <- gframe("Opções Gráficas", container =Groupgraphic, horizontal = TRUE)
   glabel("Selecione antes do Plot", container= checkboxframe)
-  pont <- gcheckbox("Indices de x", checked = FALSE, cont =checkboxframe)
-  anim <-gcheckbox("Animacao da funcao", checked=TRUE, cont=checkboxframe)
+  pont <- gcheckbox("Índices de x", checked = FALSE, cont =checkboxframe)
+  anim <-gcheckbox("Animação da função", checked=TRUE, cont=checkboxframe)
   linvt <- gcheckbox("Linhas verticais", checked = TRUE, cont= checkboxframe)
 
-  ##= Criacao da area do plot principal
+  ##= Criação da area do plot principal
   mainGrapghFrame <- gframe("Grafico Principal", container = Groupgraphic) #= grafico principal
-  gg<-ggraphics(container = mainGrapghFrame, width = 500, height = 500) #= area grafia gg (principal)
+  gg<-ggraphics(container = mainGrapghFrame, width = 650, height = 650) #= area grafia gg (principal)
 
   ##= Area do zoom
   zoomGraphFrame2 <- gframe("Zoom do grafico principal", container = Groupbuttons2, horizontal = FALSE)
   gg22<-ggraphics(container = zoomGraphFrame2,  width = 220, height = 220)
 
   ##= area de entrada dos dados
-  functionframe2 <- gframe("Funcao", container = buttonsFrame, horizontal = TRUE)
+  functionframe2 <- gframe("Função", container = buttonsFrame, horizontal = TRUE)
   env_function2<-gedit("",width = 50, cont = functionframe2, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)")
 
   pointsframe2 <- gframe("Pontos em x", container = buttonsFrame, horizontal = TRUE)
   glabel("Valores de x", container = pointsframe2)
-  env_points2<-gedit("", width = 45,cont = pointsframe2, initial.msg = "Separados por espaco")
+  env_points2<-gedit("", width = 45,cont = pointsframe2, initial.msg = "Separados por espaço")
 
-  pointframe2 <- gframe("Aproximacao", container= buttonsFrame, horizontal=TRUE)
+  pointframe2 <- gframe("Aproximação", container= buttonsFrame, horizontal=TRUE)
   glabel("Ponto a ser aproximado", container = pointframe2)
   env_aprm2<-gedit("",width = 10, cont = pointframe2, initial.msg = "ex.: 4.23")
 
@@ -1902,11 +1912,11 @@ INTERPOLACAOFUNCAO <-function()
   env_intervalx2<-gedit("",width = 20, cont = intervalframe2, initial.msg = "sobre o eixo x")
   env_intervaly2<-gedit("",width = 20, cont = intervalframe2, initial.msg = "Sobre o eixo y")
 
-  #== Criacao do botao de saida
-  exit_func<-function(h,...){dispose(winpolinomial)} #= funcao de saida
+  #== Criação do botao de saida
+  exit_func<-function(h,...){dispose(winpolinomial)} #= função de saida
   gbutton("SAIR", cont= Groupbuttons2, handler = exit_func) #= botao de saida
 
-  ##= while utilizado na construcao da animacao
+  ##= while utilizado na construção da animação
   while(isExtant(winpolinomial)) Sys.sleep(1)
 
   ##= Mudar o icone da janela
@@ -1916,21 +1926,21 @@ INTERPOLACAOFUNCAO <-function()
   #getToolkitWidget(winpolinomial)$setIcon(img$retval)
 }
 ###########################################################################################
-#' Aproximacao por Taylor:
-#' Obtem uma aproximação local para dada funcao, através da construcao dos polinomios de Taylor
+#' Aproximação por Taylor:
+#' Obtem uma aproximação local para dada função, através da construção dos polinomios de Taylor
 #'
-#' Atraves da derivada de um ponto dado de uma funcao sao interpolados polinomios de grau 1 a 5 para aproximar um outro ponto
+#' Atraves da derivada de um ponto dado de uma função sao interpolados polinomios de grau 1 a 5 para aproximar um outro ponto
 #'
 #' @param Funcao A que ser utilizada como base
-#' @param Pto_usado Ponto que sera utilizado para pegar a derivada e aproximar as interpolacoes
-#' @param Pto_aproximado Escolha de qual ponto quer ser aproximado a partir da aproximacao pela interpolacao
-#' @param Intervalo_x Define qual o intervalo do plot no eixo x, separados por espaco e na ordem crescente
-#' @param Tempo Define o tempo entre cada interpolacao
+#' @param Pto_usado Ponto que sera utilizado para pegar a derivada e aproximar as interpolações
+#' @param Pto_aproximado Escolha de qual ponto quer ser aproximado a partir da aproximação pela interpolação
+#' @param Intervalo_x Define qual o intervalo do plot no eixo x, separados por espaço e na ordem crescente
+#' @param Tempo Define o tempo entre cada interpolação
 #' @param OG_Grau Seleciona quais grais serao feitos e plotados
 TAYLOR <-function()
 {
   #== Mensagem inicial na area de resultados
-  valuetextm <- "Aproximacoes obtidas"
+  valuetextm <- "Aproximações obtidas"
 
   ##================================================================
   ##========== FUNCOES
@@ -2061,27 +2071,27 @@ TAYLOR <-function()
     points(valenv, resul, pch=3)
 
     #Resultados a serem mostrados ao usuario
-    valuetextm <- paste0("\n","O valor na funcao: ",resul,resulpol1,resulpol2,resulpol3,resulpol4,resulpol5)
+    valuetextm <- paste0("\n","O valor na função: ",resul,resulpol1,resulpol2,resulpol3,resulpol4,resulpol5)
     insert(xk_output,valuetextm)
 
   }
 
   #===========================================================================
   #INTERFACE
-  wintaylor <- gwindow("Aproximacao por Taylor") #Criacao da janela
+  wintaylor <- gwindow("Aproximação por Taylor") #Criação da janela
 
-  ##= Criacao dos grupos
+  ##= Criação dos grupos
   Groupbuttons <- ggroup(container = wintaylor, horizontal=FALSE)
   Groupgraphic <- ggroup(container = wintaylor, horizontal=FALSE)
 
-  ##= Cricao dos frames
+  ##= Crição dos frames
   buttonsFrame <- gframe("Dados de Entrada", container = Groupbuttons, horizontal = FALSE)
   gbutton("Desenhe", cont= Groupbuttons, handler = taylorfun)
   valueframe <- gframe("Resultados", container = Groupbuttons, hozizontal = TRUE, expand = TRUE)
   xk_output <- gtext("", container=valueframe, width = 220, expand=TRUE)
 
-  ##= Criacao das opcoes graficas
-  checkboxframe <- gframe("Opcoes", container =Groupgraphic, horizontal = TRUE)
+  ##= Criação das opcoes graficas
+  checkboxframe <- gframe("Opções Gráficas", container =Groupgraphic, horizontal = TRUE)
   glabel("Grau do polinomio", container= checkboxframe)
   grau1 <- gcheckbox("Grau 1", checked = TRUE, cont = checkboxframe)
   grau2 <- gcheckbox("Grau 2", checked = TRUE, cont = checkboxframe)
@@ -2089,15 +2099,15 @@ TAYLOR <-function()
   grau4 <- gcheckbox("Grau 4", checked = FALSE, cont = checkboxframe)
   grau5 <- gcheckbox("Grau 5", checked = FALSE, cont = checkboxframe)
 
-  ##= Criacao da area do plot
+  ##= Criação da area do plot
   mainGrapghFrame <- gframe("Grafico Principal", container = Groupgraphic)
-  gg<-ggraphics(container = mainGrapghFrame, width = 500, height = 500)
+  gg<-ggraphics(container = mainGrapghFrame, width = 650, height = 650)
 
   ##= area de entrada dos dados
-  functionframe <- gframe("Funcao", container = buttonsFrame, horizontal = TRUE)
+  functionframe <- gframe("Função", container = buttonsFrame, horizontal = TRUE)
   env_function<-gedit("", cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)",expand = TRUE)
 
-  intervalframe <- gframe("Aproximacao", container = buttonsFrame, horizontal = TRUE)
+  intervalframe <- gframe("Aproximação", container = buttonsFrame, horizontal = TRUE)
   glabel("Ponto a ser usado:", container = intervalframe)
   env_entr<-gedit("", width = 7,cont = intervalframe, initial.msg = "ex.: 0")
   glabel("Ponto a ser aproximado:", container = intervalframe)
@@ -2107,15 +2117,15 @@ TAYLOR <-function()
   glabel("Limite em x:", container = stopframe)
   env_limx<-gedit("",width = 15, cont = stopframe, initial.msg = "ex.: -5 5")
 
-  speedframe <- gframe("Velocidade da animacao", container= buttonsFrame, horizontal=TRUE)
+  speedframe <- gframe("Velocidade da animação", container= buttonsFrame, horizontal=TRUE)
   glabel("Tempo em segundos:", container = speedframe)
-  env_speed<-gedit("", cont = speedframe, initial.msg = "Intervalo de tempo entre as iteracoes", expand = TRUE)
+  env_speed<-gedit("", cont = speedframe, initial.msg = "Intervalo de tempo entre as iterações", expand = TRUE)
 
-  ##= criacao do botao de saida
+  ##= criação do botao de saida
   exit_func<-function(h,...){dispose(wintaylor)}
   gbutton("SAIR", cont= Groupbuttons, handler = exit_func)
 
-  ##= while utilizado na construcao da animacao
+  ##= while utilizado na construção da animação
   while(isExtant(wintaylor)) Sys.sleep(1)
 
   ##= Mudar o icone da janela
@@ -2132,9 +2142,9 @@ JANELAPRINCIPAL<-function(...)
         browseURL("http://liscustodio.github.io/CnVisual")
     }
 
-    choose <- c("----------------","Zero de funcoes:", "   Bissecao","   Falsa Posicao", "   Newton-Raphson", "   Secantes",
-    "Interpolacao:","Polinomios de Lagrange (Funcao como entrada)","   Polinomios de Lagrange (Pontos como entrada)","   Taylor",
-    "Integracao:" ,"   Trapezios","   Simpson")
+    choose <- c("- - - - - - - - - - - - - - - -","Zero de funções:", "   Método da Bisseção","   Método da Falsa Posição", "   Método de Newton-Raphson", "   Método da Secante",
+    "Interpolação:","   Polinomios de Lagrange (Função como entrada)","   Polinomios de Lagrange (Pontos como entrada)","Aproximação:","   Polinômios de Taylor",
+    "Integração:" ,"   Método dos Trapezios","   Método de Simpson")
     open <- function(h,...)
     {
         if((svalue(h$obj))==choose[3]) {BISSECAO()}
@@ -2143,17 +2153,20 @@ JANELAPRINCIPAL<-function(...)
         if((svalue(h$obj))==choose[6]) {SECANTE()}
         if((svalue(h$obj))==choose[8]) {INTERPOLACAOFUNCAO()}
         if((svalue(h$obj))==choose[9]) {INTERPOLACAOPONTOS()}
-        if((svalue(h$obj))==choose[10]) {TAYLOR()}
-        if((svalue(h$obj))==choose[12]) {TRAPEZIOS()}
-        if((svalue(h$obj))==choose[13]) {SIMPSON()}
+        if((svalue(h$obj))==choose[11]) {TAYLOR()}
+        if((svalue(h$obj))==choose[13]) {TRAPEZIOS()}
+        if((svalue(h$obj))==choose[14]) {SIMPSON()}
     }
 
     MainWindow <- gwindow(title = "CN Visual",width = 300, height = 300, horizontal = FALSE)
     maingroup <- ggroup(horizontal=FALSE, container=MainWindow)
-    checkframe <- gframe("Selecione o metodo", container = maingroup, horizontal = FALSE)
+    checkframe <- gframe("Selecione o método", container = maingroup, horizontal = FALSE)
     Metodo <- gcombobox( choose, container= checkframe, handler=open, horizontal = FALSE, height=150)
     bottomframe <- gframe("Atencao", container = maingroup, horizontal = FALSE)
-    Texto <- glabel("Por favor, leia o manual antes de utilizar o software \ne verifique se nao ha uma versao mais recente, \n ambos podem ser encontrados no site, \n basta clicar no botao a baixo", container = bottomframe)
+    Texto <- glabel("", container = bottomframe)
+   # Texto <- glabel("Por favor, leia o manual antes de utilizar o software \ne verifique se nao ha uma versao mais recente, \n ambos podem ser encontrados no site, \n basta clicar no botao a baixo", container = bottomframe)
+    Texto <- glabel("Para ter acesso às informações sobre o pacote e suas \nfuncionalidades digite: help(package = CNVisual)", container = bottomframe)
+    Texto <- glabel("", container = bottomframe)
     gbutton("Ir para o site", cont= maingroup, handler = linkfun)
 
     #img <- gdkPixbufNewFromFile("icon.png")

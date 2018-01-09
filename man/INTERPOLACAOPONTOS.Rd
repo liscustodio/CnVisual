@@ -3,26 +3,26 @@
 \name{INTERPOLACAOPONTOS}
 \alias{INTERPOLACAOPONTOS}
 \title{Interpolacao por Lagrange - Pontos:
-Interpola uma funcao que passa pelos pontos dado pelo usuario, e a partir dela aproxima um ponto.}
+Interpola polinomialmente um conjunto de pontos, e a partir da interpolacao obtida aproxima o valor da funcao em um dado ponto.}
 \usage{
 INTERPOLACAOPONTOS()
 }
 \arguments{
-\item{Valores_em_x}{As coordenadas em x dos pontos utilizados na interpolacao, separados por espaco e na ordem crescente, exemplo.: -9 -3 0.58 8 22}
+\item{Valores_em_x}{As coordenadas no eixo x dos pontos utilizados na interpolacao, separados por espaço e na ordem crescente, exemplo.: -9 -3 0.58 8 22}
 
-\item{Valores_em_y}{As coordenadas em y dos pontos utilizados na interpolacao, separados por espaco, a quantidade de termos deve ser igual a de x}
+\item{Valores_em_y}{As coordenadas no eixo y dos pontos utilizados na interpolacao, separados por espaço, a quantidade de termos deve ser igual a do eixo x}
 
 \item{Pto_aproximado}{valor de x para o qual a funcao sera aproximada pela polinomio interpolador}
 
-\item{Intervalo_x}{Define qual o intervalo do plot no eixo x, separados por espaco e na ordem crescente}
+\item{Intervalo_x}{Define qual o intervalo do plot no eixo x, separados por espaço e na ordem crescente}
 
-\item{OG_Indice}{Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou não}
+\item{OG_Indice}{Determina se os indices das aproximações obtidas em cada iteracao serao exibidos ou não}
 
-\item{OG_Animacao}{Determina se a funcao interpolada visualizada com animacao ou sera plotada de uma so vez}
+\item{OG_Animacao}{Determina se a funcao interpolada sera visualizada com animacao ou sera plotada de uma so vez}
 
 \item{OG_Linhas_Verticais}{Determina se as linhas verticais ligando o ponto da funcao no eixo x serao exibidas ou nao}
 }
 \description{
 Interpolacao por Lagrange - Pontos:
-Interpola uma funcao que passa pelos pontos dado pelo usuario, e a partir dela aproxima um ponto.
+Interpola polinomialmente um conjunto de pontos, e a partir da interpolacao obtida aproxima o valor da funcao em um dado ponto.
 }

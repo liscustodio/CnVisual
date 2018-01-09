@@ -3,26 +3,26 @@
 \name{BISSECAO}
 \alias{BISSECAO}
 \title{Metodo da Bissecao:
-Ilustra as iteracoes feitas pelo metodo da bissecao, que obtem aproximacoes para as raizes de uma dada funcao real}
+Ilustra as iterações feitas pelo metodo da bissecao, que obtem aproximações para as raizes de uma dada funcao real.}
 \usage{
 BISSECAO()
 }
 \arguments{
 \item{Funcao}{A equacao que descreve a funcao para a qual se deseja encontrar as raizes. Ex: exp(x) - x^2 + sqrt(x + 2)}
 
-\item{Intervalo_x}{Intervalo contento a raiz da funcao, separado por espaco, exemplo: -5 6}
+\item{Intervalo_x}{Intervalo contento a raiz da funcao, separado por espaço, exemplo: -5 6}
 
-\item{N_casas_decimais}{Numero de casas decimais correspondente a precisao desejada}
+\item{N_casas_decimais}{Número de casas decimais correspondente a precisao desejada}
 
-\item{Iteracoes}{Numero maximo de iteracoes}
+\item{Iteracoes}{Número maximo de iterações}
 
 \item{Tempo}{tempo de exibição de cada iteracao}
 
-\item{OG_Indices}{Determina se os indices das aproximacoes obtidas em cada iteracao serao exibidos ou nao}
+\item{OG_Indices}{Determina se os índices das aproximações obtidas em cada iteracao serao exibidos ou nao}
 
 \item{OG_Linha_Axiliar}{Determina se a linha com o intervalo da iteracao sera exibida ou nao}
 }
 \description{
 Metodo da Bissecao:
-Ilustra as iteracoes feitas pelo metodo da bissecao, que obtem aproximacoes para as raizes de uma dada funcao real
+Ilustra as iterações feitas pelo metodo da bissecao, que obtem aproximações para as raizes de uma dada funcao real.
 }

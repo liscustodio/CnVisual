@@ -2,25 +2,24 @@
 % Please edit documentation in R/CN_visual.R
 \name{TAYLOR}
 \alias{TAYLOR}
-\title{Aproximacao por Taylor:
-Atraves da derivada de um ponto dado de uma funcao sao interpolados polinomios de grau 1 a 5 para aproximar um outro ponto}
+\title{Aproximação por Taylor:
+Obtem uma aproximação local para dada função, através da construção dos polinomios de Taylor}
 \usage{
 TAYLOR()
 }
 \arguments{
 \item{Funcao}{A que ser utilizada como base}
 
-\item{Pto_usado}{Ponto que sera utilizado para pegar a derivada e aproximar as interpolacoes}
+\item{Pto_usado}{Ponto que sera utilizado para pegar a derivada e aproximar as interpolações}
 
-\item{Pto_aproximado}{Escolha de qual ponto quer ser aproximado a partir da aproximacao pela interpolacao}
+\item{Pto_aproximado}{Escolha de qual ponto quer ser aproximado a partir da aproximação pela interpolação}
 
-\item{Intervalo_x}{Define qual o intervalo do plot no eixo x, separados por espaco e na ordem crescente}
+\item{Intervalo_x}{Define qual o intervalo do plot no eixo x, separados por espaço e na ordem crescente}
 
-\item{Tempo}{Define o tempo entre cada interpolacao}
+\item{Tempo}{Define o tempo entre cada interpolação}
 
 \item{OG_Grau}{Seleciona quais grais serao feitos e plotados}
 }
 \description{
-Aproximacao por Taylor:
-Atraves da derivada de um ponto dado de uma funcao sao interpolados polinomios de grau 1 a 5 para aproximar um outro ponto
+Atraves da derivada de um ponto dado de uma função sao interpolados polinomios de grau 1 a 5 para aproximar um outro ponto
 }
