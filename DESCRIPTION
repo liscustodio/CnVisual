@@ -6,7 +6,7 @@ Date: 2016-10-03
 Author: Victor Vieira and Lis Custodio
 Maintainer: Lis Custodio <lcustodio.iprj@gmail.com>
 Description: Atraves de uma interface intuitiva demonstra como os metodos utilizados no calculo numerico tem uma logica geometrica por tras de suas equacoes, assim entao, facilitando o aluno de total compreensao da disciplina.
-Depends:  RGtk2, gWidgetsRGtk2 (>= 0.0-83), cairoDevice (>= 2.23)
+Depends:  RGtk2 (>=2.8.0), gWidgetsRGtk2 (>= 0.0-83), cairoDevice (>= 2.23)
 LazyData: TRUE
 RoxygenNote: 6.0.1
 License: cco
