@@ -2143,8 +2143,8 @@ JANELAPRINCIPAL<-function(...)
     }
 
     choose <- c("- - - - - - - - - - - - - - - -","Zero de funções:", "   Método da Bisseção","   Método da Falsa Posição", "   Método de Newton-Raphson", "   Método da Secante",
-    "Interpolação:","   Polinomios de Lagrange (Função como entrada)","   Polinomios de Lagrange (Pontos como entrada)","Aproximação:","   Polinômios de Taylor",
-    "Integração:" ,"   Método dos Trapezios","   Método de Simpson")
+    "Interpolação:","   Polinomios de Lagrange (Função como entrada)","   Polinômios de Lagrange (Pontos como entrada)","Aproximação:","   Polinômios de Taylor",
+    "Integração:" ,"   Método dos Trapézios","   Método de Simpson")
     open <- function(h,...)
     {
         if((svalue(h$obj))==choose[3]) {BISSECAO()}
