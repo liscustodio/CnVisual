@@ -1457,19 +1457,19 @@ SIMPSON <-function()
 
   ##= area de entrada dos dados
   functionframe <- gframe("Funcao", container = buttonsFrame, horizontal = TRUE)
-  env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)")
+  env_function<-gedit("",width = 50, cont = functionframe, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)",expand = TRUE)
 
   intervalframe <- gframe("Intervalo", container = buttonsFrame, horizontal = TRUE)
   glabel("Intervalo no eixo x:", container = intervalframe)
-  env_entr<-gedit("", width = 14,cont = intervalframe, initial.msg = "ex.: -2 3")
+  env_entr<-gedit("", width = 14,cont = intervalframe, initial.msg = "ex.: -2 3",expand = TRUE)
 
   stopframe <- gframe("Divisoes", container= buttonsFrame, horizontal=TRUE)
   glabel("Número de intervalos:", container = stopframe)
-  env_div<-gedit("",width = 20, cont = stopframe, initial.msg = "ex.: 5")
+  env_div<-gedit("",width = 20, cont = stopframe, initial.msg = "ex.: 5",expand = TRUE)
 
   speedframe <- gframe("Velocidade da animacao", container= buttonsFrame, horizontal=TRUE)
   glabel("Tempo em segundos:", container = speedframe)
-  env_speed<-gedit("",width = 35, cont = speedframe, initial.msg = "Intervalo de tempo entre as iterações")
+  env_speed<-gedit("",width = 35, cont = speedframe, initial.msg = "Intervalo de tempo entre as iterações",expand = TRUE)
 
   ##= criacao do botao de saida
   exit_func<-function(h,...){dispose(winsimpson)}
@@ -1663,18 +1663,18 @@ INTERPOLACAOPONTOS <-function()
   ##= area de entrada dos dados
   pointsframe <- gframe("Pontos", container = buttonsFrame, horizontal = FALSE)
   glabel("Valores em x", container = pointsframe)
-  env_points_x<-gedit("",width = 50, cont = pointsframe, initial.msg = "Separados por espaço")
+  env_points_x<-gedit("",width = 50, cont = pointsframe, initial.msg = "Separados por espaço",expand = TRUE)
   glabel("Valores em y", container = pointsframe)
-  env_points_y<-gedit("", width = 50,cont = pointsframe, initial.msg = "Separados por espaço")
+  env_points_y<-gedit("", width = 50,cont = pointsframe, initial.msg = "Separados por espaço",expand = TRUE)
 
   pointframe <- gframe("Aproximacao", container= buttonsFrame, horizontal=TRUE)
   glabel("Ponto a ser aproximado", container = pointframe)
-  env_aprm<-gedit("",width = 15, cont = pointframe, initial.msg = "ex.: 3.25")
+  env_aprm<-gedit("",width = 15, cont = pointframe, initial.msg = "ex.: 3.25",expand = TRUE)
 
   intervalframe <- gframe("Intervalo", container= buttonsFrame, horizontal=TRUE)
   glabel("Intervalo nos eixos: ", container = intervalframe)
-  env_intervalx<-gedit("",width = 20, cont = intervalframe, initial.msg = "sobre o eixo x")
-  env_intervaly<-gedit("",width = 20, cont = intervalframe, initial.msg = "Sobre o eixo y")
+  env_intervalx<-gedit("",width = 20, cont = intervalframe, initial.msg = "sobre o eixo x",expand = TRUE)
+  env_intervaly<-gedit("",width = 20, cont = intervalframe, initial.msg = "Sobre o eixo y",expand = TRUE)
 
   ##= Criacao do botao de saida
   exit_func<-function(h,...){dispose(winpolinomial)}
@@ -1897,20 +1897,20 @@ INTERPOLACAOFUNCAO <-function()
 
   ##= area de entrada dos dados
   functionframe2 <- gframe("Função", container = buttonsFrame, horizontal = TRUE)
-  env_function2<-gedit("",width = 50, cont = functionframe2, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)")
+  env_function2<-gedit("",width = 50, cont = functionframe2, initial.msg = "ex: 2*x + exp(x) - sin(x) + log(x)",expand = TRUE)
 
   pointsframe2 <- gframe("Pontos em x", container = buttonsFrame, horizontal = TRUE)
   glabel("Valores de x", container = pointsframe2)
-  env_points2<-gedit("", width = 45,cont = pointsframe2, initial.msg = "Separados por espaço")
+  env_points2<-gedit("", width = 45,cont = pointsframe2, initial.msg = "Separados por espaço",expand = TRUE)
 
   pointframe2 <- gframe("Aproximação", container= buttonsFrame, horizontal=TRUE)
   glabel("Ponto a ser aproximado", container = pointframe2)
-  env_aprm2<-gedit("",width = 10, cont = pointframe2, initial.msg = "ex.: 4.23")
+  env_aprm2<-gedit("",width = 10, cont = pointframe2, initial.msg = "ex.: 4.23",expand = TRUE)
 
   intervalframe2 <- gframe("Intervalo", container= buttonsFrame, horizontal=TRUE)
   glabel("Intervalo nos eixos: ", container = intervalframe2)
-  env_intervalx2<-gedit("",width = 20, cont = intervalframe2, initial.msg = "sobre o eixo x")
-  env_intervaly2<-gedit("",width = 20, cont = intervalframe2, initial.msg = "Sobre o eixo y")
+  env_intervalx2<-gedit("",width = 20, cont = intervalframe2, initial.msg = "sobre o eixo x",expand = TRUE)
+  env_intervaly2<-gedit("",width = 20, cont = intervalframe2, initial.msg = "Sobre o eixo y",expand = TRUE)
 
   #== Criação do botao de saida
   exit_func<-function(h,...){dispose(winpolinomial)} #= função de saida
@@ -2109,15 +2109,15 @@ TAYLOR <-function()
 
   intervalframe <- gframe("Aproximação", container = buttonsFrame, horizontal = TRUE)
   glabel("Ponto a ser usado:", container = intervalframe)
-  env_entr<-gedit("", width = 7,cont = intervalframe, initial.msg = "ex.: 0")
+  env_entr<-gedit("", width = 7,cont = intervalframe, initial.msg = "ex.: 0",expand = TRUE)
   glabel("Ponto a ser aproximado:", container = intervalframe)
-  env_val<-gedit("", width = 7,cont = intervalframe, initial.msg = "ex.: 0.75")
+  env_val<-gedit("", width = 7,cont = intervalframe, initial.msg = "ex.: 0.75",expand = TRUE)
 
   stopframe <- gframe("Limites", container= buttonsFrame, horizontal=TRUE)
   glabel("Limite em x:", container = stopframe)
-  env_limx<-gedit("",width = 15, cont = stopframe, initial.msg = "ex.: -5 5")
+  env_limx<-gedit("",width = 15, cont = stopframe, initial.msg = "ex.: -5 5",expand = TRUE)
 
-  speedframe <- gframe("Velocidade da animação", container= buttonsFrame, horizontal=TRUE)
+  speedframe <- gframe("Velocidade da animação", container= buttonsFrame, horizontal=TRUE,expand = TRUE)
   glabel("Tempo em segundos:", container = speedframe)
   env_speed<-gedit("", cont = speedframe, initial.msg = "Intervalo de tempo entre as iterações", expand = TRUE)
 
@@ -2134,6 +2134,7 @@ TAYLOR <-function()
  # img <- gdkPixbufNewFromFile(icon_dir)
   #getToolkitWidget(winbissection)$setIcon(img$retval)
 }
+
 
 JANELAPRINCIPAL<-function(...)
 {
