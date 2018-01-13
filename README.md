@@ -11,7 +11,7 @@ O CN Visual foi desenvolvido juntamente com o aluno Victor Vieira como projeto d
 <hr>			 
  A ferramenta CN Visual foi idealizada na forma de um pacote a ser integrado ao  <a href="https://www.r-project.org/"> software R,</a> um programa gratuito, de código aberto e altamente extensível.  				  
 				 
-<br>
+<br><br>
 <b>Instruções de instalação:</b>				   
   <ol>
   <li>Baixe e instale o <a href=" https://vps.fmvz.usp.br/CRAN/"> programa R</a></li>
