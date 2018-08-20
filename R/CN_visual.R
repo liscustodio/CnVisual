@@ -1208,7 +1208,7 @@ TRAPEZIOS <-function()
 
   ##= Criacao das opcoes graficas
   checkboxframe <- gframe("Opções", container =Groupgraphic, horizontal = TRUE)
-  glabel("Selecione antes do Plot", container= checkboxframe)
+  glabel("Selecione antes do Plot:", container= checkboxframe)
   pont <- gcheckbox("Índices de x", checked = FALSE, cont =checkboxframe)
   pint <- gcheckbox("Pintar Area", checked = TRUE, cont = checkboxframe)
   linvt <- gcheckbox("Linhas verticais", checked = TRUE, cont= checkboxframe)
@@ -1446,7 +1446,7 @@ SIMPSON <-function()
 
   ##= Criacao das opcoes graficas
   checkboxframe <- gframe("Opções", container =Groupgraphic, horizontal = TRUE)
-  glabel("Selecione antes do Plot", container= checkboxframe)
+  glabel("Selecione antes do Plot:", container= checkboxframe)
   pont <- gcheckbox("Índices de x", checked = FALSE, cont =checkboxframe)
   pint <- gcheckbox("Pintar area", checked = TRUE, cont = checkboxframe)
   linvt <- gcheckbox("Linhas verticais", checked = TRUE, cont= checkboxframe)
