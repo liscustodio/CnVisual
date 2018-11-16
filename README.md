@@ -28,7 +28,7 @@
           <ul> 
       <li>Abra programa R e, digite os seguintes comandos no console: </li> 
 	      <ul>
-	      <li><font face="Courier">install.packages("devtools", dependencies = TRUE)</font></li> 
+	      <li><font face="Courier">install.packages("devtools")</font></li> 
 	      <li><font face="Courier">library(devtools)</font></li>
 	      <li><font face="Courier">install_github("liscustodio/CnVisual")</font></li>
      </ul>
